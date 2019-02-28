@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+  <title>Circle</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- FONTS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link href='https://fonts.googleapis.com/css?family=Work+Sans:400,500' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Cousine' rel='stylesheet' type='text/css'>
+
+
+  <!-- JS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+  <script type="text/javascript" src="../js/autogrow.js"></script>
+  <script type="text/javascript" src="../js/global.js"></script>
+  <script type="text/javascript" src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="../css/circle/core/docs.css">
+
+</head>
+<body>
+  <header class="circle--header">
+    <div class="bounds">
+      <div class="circle--fluid">
+        <div class="circle--fluid--cell circle--fluid--primary">
+          <h1 class="hide-text circle--logo"><a class="logo" href="index.html">Circle</a></h1>
+        </div>
+        <div class="circle--fluid--cell">
+          <nav>
+            <ul class="circle--inline--list">
+              <li><a href="https://github.com/treehouse/circle/archive/master.zip">Download</a></li>
+              <li><a href="https://github.com/treehouse/circle"><strong>View on Github</strong></a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="bounds circle--page">
+    <div class="circle--page--header circle--fluid">
+      <div class="circle--fluid--cell circle--fluid--primary">
+        <h2>Documentation</h2>
+      </div>
+    </div>
+
+    <div class="grid-25">
+      <div class="circle--filter circle--secondary--module">
+        <h4>Core</h4>
+        <ul class="circle--link--list">
+          <li><a href="#grid">Grids</a></li>
+          <li><a href="#typography">Typography</a></li>
+          <li><a href="#lists">Lists</a></li>
+          <li><a href="#buttons">Buttons</a></li>
+          <li><a href="#forms">Forms</a></li>
+          <li><a href="#tables">Tables</a></li>
+          <li><a href="#code">Code</a></li>
+          <li><a href="#utilities">Utilities</a></li>
+        </ul>
+      </div>
+
+      <div class="circle--filter circle--secondary--module">
+        <h4>Components</h4>
+        <ul class="circle--link--list">
+          <li><a href="#component-containers">Fluid Container</a></li>
+          <li><a href="#header">Main Header</a></li>
+          <li><a href="#page-header">Page Header</a></li>
+          <li><a href="#article-header">Article Header</a></li>
+          <li><a href="#component-lists">Lists</a></li>
+          <li><a href="#component-tables">Tables</a></li>
+        </ul>
+      </div>
+
+      <div class="circle--filter circle--secondary--module">
+        <h4>Examples</h4>
+        <ul class="circle--link--list">
+          <li><a href="examples/project.html">Project</a></li>
+          <li><a href="examples/project_edit.html">Edit Project</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="grid-70 grid-push-5">
+      <section class="circle--section">
+        <h1>Core</h1>
+        <p>The core of Circle includes styles for grids, standard elements, buttons, and forms. All other constructions using these elements are organized under the <a href="#components">Components</a> section of the documentation.</p>
+        <hr />
+
+        <article class="docs--article" id="bounds">
+          <h2>Bounds</h2>
+          <p>Setting the outter bounds of your layout defined using the <code>.bounds</code> class. By default the <code>.bounds</code> class applies centering with a max-width of <code>1080px</code> but can easily be edited using the <code>$layout-bounds</code> variable in <em>sass/variables.sass</em>.</p>
+<pre class="prettyprint">
+&lt;div class=&quot;bounds&quot;&gt;
+  &lt;!-- Layout goes here --&gt;
+&lt;/div&gt;
+</pre>
+        </article>
+
+        <article class="docs--article" id="grid">
+          <h2>Grids</h2>
+          <p>Circle's grid system is based on percentage widths columns available in incriments of <code>5%</code> as well as thirds. The default gutter width is <code>30px</code> between columns but can easily be modified by changing the variable <code>$gutter-width</code> in the <em>sass/variables.sass</em> file.</p>
+          <p>Columns in the grid system follow the following class naming pattern:</p>
+<pre class="prettyprint">
+// Pattern
+.grid-[width of column as %]
+
+////////////////////////////
+// Examples
+
+.grid-50 {
+  width: 50%;
+}
+
+.grid-55 {
+  width: 55%;
+}
+
+// One third width of parent
+.grid-33 {
+  width: 33.333%;
+}
+
+// Two thirds width of parent
+.grid-66 {
+  width: 66.666%;
+}
+</pre>
+
+          <h3>Examples</h3>
+          <div class="grid-parent">
+            <div class="grid-10"><div class="docs--grid--column">10%</div></div>
+            <div class="grid-10"><div class="docs--grid--column">10%</div></div>
+            <div class="grid-10"><div class="docs--grid--column">10%</div></div>
+            <div class="grid-10"><div class="docs--grid--column">10%</div></div>
+            <div class="grid-10"><div class="docs--grid--column">10%</div></div>
+            <div class="grid-10"><div class="docs--grid--column">10%</div></div>
+            <div class="grid-10"><div class="docs--grid--column">10%</div></div>
+            <div class="grid-10"><div class="docs--grid--column">10%</div></div>
+            <div class="grid-10"><div class="docs--grid--column">10%</div></div>
+            <div class="grid-10"><div class="docs--grid--column">10%</div></div>
+
+            <div class="grid-20"><div class="docs--grid--column">20%</div></div>
+            <div class="grid-20"><div class="docs--grid--column">20%</div></div>
+            <div class="grid-20"><div class="docs--grid--column">20%</div></div>
+            <div class="grid-20"><div class="docs--grid--column">20%</div></div>
+            <div class="grid-20"><div class="docs--grid--column">20%</div></div>
+
+            <div class="grid-25"><div class="docs--grid--column">25%</div></div>
+            <div class="grid-25"><div class="docs--grid--column">25%</div></div>
+            <div class="grid-25"><div class="docs--grid--column">25%</div></div>
+            <div class="grid-25"><div class="docs--grid--column">25%</div></div>
+
+            <div class="grid-33"><div class="docs--grid--column">33%</div></div>
+            <div class="grid-33"><div class="docs--grid--column">33%</div></div>
+            <div class="grid-33"><div class="docs--grid--column">33%</div></div>
+
+            <div class="grid-33"><div class="docs--grid--column">33%</div></div>
+            <div class="grid-66"><div class="docs--grid--column">66%</div></div>
+
+            <div class="grid-70"><div class="docs--grid--column">70%</div></div>
+            <div class="grid-30"><div class="docs--grid--column">30%</div></div>
+
+            <div class="grid-50"><div class="docs--grid--column">50%</div></div>
+            <div class="grid-50"><div class="docs--grid--column">50%</div></div>
+
+            <div class="grid-100"><div class="docs--grid--column">100%</div></div>
+          </div>
+
+          <h3>Nesting</h3>
+          <p>If you wish to nest columns inside each other, wrap the nested columns in a container using the <code>grid-parent</code> class.</p>
+          <pre class="prettyprint">
+&lt;div class=&quot;grid-60&quot;&gt;
+
+&lt;/div&gt;
+
+&lt;div class=&quot;grid-40&quot;&gt;
+  &lt;div class=&quot;grid-parent&quot;&gt;
+    &lt;div class=&quot;grid-50&quot;&gt;
+
+    &lt;/div&gt;
+    &lt;div class=&quot;grid-50&quot;&gt;
+
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+
+          <div class="grid-parent">
+            <div class="grid-60"><div class="docs--grid--column">60%</div></div>
+            <div class="grid-40">
+              <div class="docs--grid--column">
+                40%
+                <div class="grid-parent">
+                  <div class="grid-50">
+                    <div class="docs--grid--column">
+                      50%
+                    </div>
+                  </div>
+                  <div class="grid-50">
+                    <div class="docs--grid--column">
+                      50%
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <h3>Push / Pull Classes</h3>
+          <p>If you want to swap the visual arrangement of columns, but not affect source order, you can use <code>.grid-push-[%]</code> and <code>.grid-pull-[%]</code> classes.</p>
+        </article>
+
+        <article class="docs--article" id="typography">
+          <h2>Typography</h2>
+          <p>Type is all set with the <code>rems</code>, so font-sizes and spacial relationships can be responsively sized based on a single <code>&lt;html&gt;</code> font-size property. By default Circle never changes the <html> font-size, but it's there in case you need it for your project. All measurements are base 10 though so, an <code>&lt;h1&gt;</code> with <code>3.8rem</code> font-size just means <code>38px</code>.</p>
+
+          <p>The default typefaces used for Circle are <a>Cousine</a> for the default body type and <a>Work Sans</a> for display type. These typefaces can be edited from the <em>sass/variables.sass</em> file by modifying the values for <code>$display-font</code> and <code>$body-font</code>.</p>
+
+          <p>Additionally, each heading's font size is defined by a variable in <em>sass/variables.sass</em> for easy modification. Default sizes are as follows.</p>
+          <div class="grid-parent">
+            <div class="grid-60">
+              <table class="full-width">
+                <thead>
+                  <th>Variable</th>
+                  <th>Font Size</th>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><code>$h1</code></td>
+                    <td>3.8rem</td>
+                  </tr>
+                  <tr>
+                    <td><code>$h2</code></td>
+                    <td>2.4rem</td>
+                  </tr>
+                  <tr>
+                    <td><code>$h3</code></td>
+                    <td>1.8rem</td>
+                  </tr>
+                  <tr>
+                    <td><code>$h4</code></td>
+                    <td>1.6rem</td>
+                  </tr>
+                  <tr>
+                    <td><code>$h5</code></td>
+                    <td>1.4rem</td>
+                  </tr>
+                  <tr>
+                    <td><code>$h6</code></td>
+                    <td>1.4rem</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="grid-40">
+              <h1>Heading 1</h1>
+              <h2>Heading 2</h2>
+              <h3>Heading 3</h3>
+              <h4>Heading 4</h4>
+              <h5>Heading 5</h5>
+              <h6>Heading 6</h6>
+            </div>
+          </div>
+        </article>
+
+
+        <article class="docs--article" id="lists">
+          <h2>Lists</h2>
+
+          <ul>
+            <li>Unordered lists have basic styles</li>
+            <li>
+              They use the circle list style
+              <ul>
+                <li>Nested lists styled to feel right</li>
+                <li>Can nest either type of list into the other</li>
+              </ul>
+            </li>
+            <li>Just more list items mama san</li>
+          </ul>
+
+          <ol>
+            <li>Ordered lists also have basic styles</li>
+            <li>
+              They use the decimal list style
+              <ul>
+                <li>Ordered and unordered can be nested</li>
+                <li>Can nest either type of list into the other</li>
+              </ul>
+            </li>
+            <li>Last list item just for the fun</li>
+          </ol>
+        </article>
+
+        <article class="docs--article" id="buttons">
+          <h2>Buttons</h2>
+          <p>Circle provides two buttons styles. The standard <code>&lt;button&gt;</code> is a basic outlined button while adding the <code>.button-primary</code> class makes the button more prominent with a solid colored background. Button styles are applied to a number of appropriate form elements, but can also be attached to anchors with the <code>.button</code> class. The color of the button is can be edited using the <code>$button-color</code> variable in <em>sass/variables.sass</em></p>
+
+          <div class="grid-parent">
+
+            <div class="grid-60">
+<pre class="prettyprint">
+&lt;a class=&quot;button&quot;&gt;&lt;/a&gt;
+&lt;button&gt;&lt;/button&gt;
+&lt;input type=&quot;button&quot; /&gt;
+&lt;input type=&quot;submit&quot; /&gt;
+&lt;input type=&quot;reset&quot; /&gt;
+</pre>
+            </div>
+            <div class="grid-40">
+              <a class="button">Standard Button</a>
+            </div>
+          </div>
+          <div class="grid-parent">
+            <div class="grid-60">
+<pre class="prettyprint">
+&lt;a class=&quot;button button-primary&quot;&gt;&lt;/a&gt;
+&lt;button&gt;&lt;/button&gt;
+&lt;input type=&quot;button&quot; class=&quot;button-primary&quot; /&gt;
+&lt;input type=&quot;submit&quot; class=&quot;button-primary&quot; /&gt;
+&lt;input type=&quot;reset&quot; class=&quot;button-primary&quot; /&gt;
+</pre>
+            </div>
+
+            <div class="grid-40">
+              <a class="button button-primary">Primary Button</a>
+            </div>
+          </div>
+
+          <h3>Buttons with Icons</h3>
+          <p>If you wish to put an icon inside your button you can add the <code>.icon-on-left</code> or <code>.icon-on-right</code> classes to the button to properly size and position the icon within. By default icons are sized based on a height of <code>13px</code>.</p>
+
+          <div class="grid-parent">
+            <div class="grid-60">
+<pre class="prettyprint">
+&lt;a class=&quot;button button-primary icon-on-left&quot;&gt;
+  &lt;svg version=&quot;1.1&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; x=&quot;0px&quot; y=&quot;0px&quot; viewBox=&quot;0 0 13 13&quot; style=&quot;enable-background:new 0 0 13 13;&quot; xml:space=&quot;preserve&quot; class=&quot;add&quot;&gt;
+    &lt;polygon points=&quot;7,6 7,0 6,0 6,6 0,6 0,7 6,7 6,13 7,13 7,7 13,7 13,6 &quot;/&gt;
+  &lt;/svg&gt;
+  New Project
+&lt;/a&gt;
+</pre>
+            </div>
+
+            <div class="grid-40">
+              <a class="button button-primary icon-on-left">
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 13 13" style="enable-background:new 0 0 13 13;" xml:space="preserve" class="add">
+                  <polygon points="7,6 7,0 6,0 6,6 0,6 0,7 6,7 6,13 7,13 7,7 13,7 13,6 "/>
+                </svg>
+                New Project
+              </a>
+            </div>
+          </div>
+
+          <div class="grid-parent">
+            <div class="grid-60">
+<pre class="prettyprint">
+&lt;a class=&quot;button button-primary icon-on-right&quot;&gt;
+  New Project
+  &lt;svg version=&quot;1.1&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; x=&quot;0px&quot; y=&quot;0px&quot; viewBox=&quot;0 0 13 13&quot; style=&quot;enable-background:new 0 0 13 13;&quot; xml:space=&quot;preserve&quot; class=&quot;add&quot;&gt;
+    &lt;polygon points=&quot;7,6 7,0 6,0 6,6 0,6 0,7 6,7 6,13 7,13 7,7 13,7 13,6 &quot;/&gt;
+  &lt;/svg&gt;
+&lt;/a&gt;
+</pre>
+            </div>
+
+            <div class="grid-40">
+              <a class="button button-primary icon-on-right">
+                New Project
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 13 13" style="enable-background:new 0 0 13 13;" xml:space="preserve" class="add">
+                  <polygon points="7,6 7,0 6,0 6,6 0,6 0,7 6,7 6,13 7,13 7,7 13,7 13,6 "/>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <article class="docs--article" id="forms">
+          <h2>Forms</h2>
+          <p>The core components of Circle provide styling for all form elements without the necessity for any additional classes. Custom variations for <code>select</code> menus and <code>input[type="file"]</code> are available.</p>
+
+          <h3>Example Form</h3>
+          <form>
+            <div class="grid-parent">
+              <div class="grid-50">
+                <label for="email">Email Address</label>
+                <input type="email" placeholder="example@example.com" id="email">
+              </div>
+              <div class="grid-50">
+                <label for="recipient">Gender</label>
+                  <select class="full-width" id="recipient">
+                    <option value="Option 1">Male</option>
+                    <option value="Option 2">Female</option>
+                    <option value="Option 3">Rather not say</option>
+                  </select>
+              </div>
+            </div>
+            <label for="message">Message</label>
+            <textarea class="full-width" placeholder="Your message..." id="message"></textarea>
+            <label>
+              <input type="checkbox">
+              <span class="label-body">Send a copy to yourself</span>
+            </label>
+            <input class="button-primary" type="submit" value="Send Message">
+          </form>
+
+<pre class="prettyprint">
+&lt;form&gt;
+  &lt;div class=&quot;grid-parent&quot;&gt;
+    &lt;div class=&quot;grid-50&quot;&gt;
+      &lt;label for=&quot;email&quot;&gt;Email Address&lt;/label&gt;
+      &lt;input type=&quot;email&quot; placeholder=&quot;example@example.com&quot; id=&quot;email&quot;&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;grid-50&quot;&gt;
+      &lt;label for=&quot;recipient&quot;&gt;Gender&lt;/label&gt;
+      &lt;select class=&quot;full-width&quot; id=&quot;recipient&quot;&gt;
+        &lt;option value=&quot;Option 1&quot;&gt;Male&lt;/option&gt;
+        &lt;option value=&quot;Option 2&quot;&gt;Female&lt;/option&gt;
+        &lt;option value=&quot;Option 3&quot;&gt;Rather not say&lt;/option&gt;
+      &lt;/select&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;label for=&quot;message&quot;&gt;Message&lt;/label&gt;
+  &lt;textarea class=&quot;full-width&quot; placeholder=&quot;Your message...&quot; id=&quot;message&quot;&gt;&lt;/textarea&gt;
+  &lt;label&gt;
+    &lt;input type=&quot;checkbox&quot;&gt;
+    &lt;span class=&quot;label-body&quot;&gt;Send a copy to yourself&lt;/span&gt;
+  &lt;/label&gt;
+  &lt;input class=&quot;button-primary&quot; type=&quot;submit&quot; value=&quot;Send Message&quot;&gt;
+&lt;/form&gt;
+</pre>
+
+          <h3>Custom Select Menu</h3>
+          <p>If you wish to style <code>select</code> menus beyond whats possible with CSS alone, Circle provides an the following syntax. </p>
+          <div class="grid-parent">
+            <div class="grid-60">
+              <pre class="prettyprint">
+&lt;div class=&quot;circle--select&quot;&gt;
+  &lt;select&gt;
+    &lt;option&gt;Option 1&lt;/option&gt;
+    &lt;option&gt;Option 2&lt;/option&gt;
+    &lt;option&gt;Option 3&lt;/option&gt;
+  &lt;/select&gt;
+  &lt;svg version=&quot;1.1&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; viewBox=&quot;0 0 8 13&quot; xml:space=&quot;preserve&quot; class=&quot;chevron&quot;&gt;
+    &lt;polygon points=&quot;1.4,13 0,11.6 5.2,6.5 0,1.4 1.4,0 8,6.5  &quot;/&gt;
+  &lt;/svg&gt;
+&lt;/div&gt;
+            </pre>
+          </div>
+          <div class="grid-40">
+            <div class="circle--select">
+              <select>
+                <option>Option 1</option>
+                <option>Option 2</option>
+                <option>Option 3</option>
+              </select>
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 8 13" xml:space="preserve" class="chevron">
+                <polygon points="1.4,13 0,11.6 5.2,6.5 0,1.4 1.4,0 8,6.5  "/>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <h3>Custom File Input</h3>
+
+        <p>If you wish to style <code>input[type="file"]</code> fields beyond whats possible with CSS alone there are two methods. The first method is by adding the <code>.circle--input--file</code> class on to the file input you wish to customize. Additionally you'll need to add the <code>data-text</code> attribute with a value of the text you'd like for the button. There also is the option to give the button additional classes, such as <code>button-primary</code>, by applying that value to the <code>data-state</code> attribute. This method uses Javascript to wrap the input and assign the values assigned in the <code>data-text</code> and <code>data-state</code> attributes.</p>
+        <h4>Syntax</h4>
+<pre class="prettyprint">
+&lt;input type=&quot;file&quot; class=&quot;circle--input--file&quot; data-text=&quot;Upload File&quot; data-state=&quot;button-primary&quot; /&gt;
+</pre>
+        <h4>Output</h4>
+
+        <div class="grid-parent">
+          <div class="grid-60">
+<pre class="prettyprint">
+&lt;div class=&quot;button button-primary&quot;&gt;
+  Upload File
+  &lt;input type=&quot;file&quot; /&gt;
+&lt;/div&gt;
+</pre>
+        </div>
+        <div class="grid-40">
+            <input type="file" class="circle--input--file" data-text="Upload File" data-state="button-primary" />
+          </div>
+        </div>
+
+        <p>The second method is for if you wish to further customize your button with additonal elements such as an image or icon. Simply wrap the <code>&lt;input type=&quot;file&quot; /&gt;</code> element in an element with the <code>button</code> class applied.</p>
+
+        <div class="grid-parent">
+          <div class="grid-60">
+            <pre class="prettyprint">
+&lt;div class=&quot;button icon-on-left&quot;&gt;
+  &lt;svg version=&quot;1.1&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; x=&quot;0px&quot; y=&quot;0px&quot; viewBox=&quot;0 0 13 13&quot; style=&quot;enable-background:new 0 0 13 13;&quot; xml:space=&quot;preserve&quot; class=&quot;add&quot;&gt;
+    &lt;polygon points=&quot;7,6 7,0 6,0 6,6 0,6 0,7 6,7 6,13 7,13 7,7 13,7 13,6 &quot;/&gt;
+  &lt;/svg&gt;
+  Add Files
+  &lt;input type=&quot;file&quot; /&gt;
+&lt;/div&gt;
+            </pre>
+          </div>
+          <div class="grid-40">
+            <a class="button icon-on-left">
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 13 13" style="enable-background:new 0 0 13 13;" xml:space="preserve" class="add">
+                <polygon points="7,6 7,0 6,0 6,6 0,6 0,7 6,7 6,13 7,13 7,7 13,7 13,6 "/>
+              </svg>
+              Add Files
+              <input type="file" />
+            </a>
+          </div>
+        </div>
+
+        </article>
+
+        <article class="docs--article" id="tables">
+          <h2>Tables</h2>
+          <p>Table structures require being properly formed with <code>&lt;thead&gt;</code> and <code>&lt;tbody&gt;</code>.</p>
+
+          <table class="full-width">
+            <thead>
+              <th>Name</th>
+              <th>Age</th>
+              <th>Location</th>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td>Adam Smith</td>
+                <td>67</td>
+                <td>Edinburgh, Scotland</td>
+              </tr>
+              <tr class="clickable-row" data-href="https://en.wikipedia.org/wiki/Friedrich_Hayek" data-target="_blank">
+                <td>Friedrich Hayek</td>
+                <td>92</td>
+                <td>London, England</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h3>Row Linking</h3>
+          <p>Circle offers the ability to easily make entire table rows linkable to specific <code>URL</code>. Just add the <code>.clickable-row</code> along with the <code>data-href</code> attrubute with your <code>URL</code> to the <code>&lt;tr&gt;</code> tag. Optionally, you can also add the <code>data-target</code> attribute that acts identically to the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attr-target">target attribute</a> used in <code>&lt;a&gt;</code> tags.</p>
+
+<pre class="prettyprint">
+&lt;tr class=&quot;clickable-row&quot; data-href=&quot;http://www.wikipedia.com&quot; data-target=&quot;_blank&quot;&gt;
+  &lt;td&gt;Wikipedia&lt;/td&gt;
+  &lt;td&gt;wikipedia.com&lt;/td&gt;
+&lt;/tr&gt;</pre>
+        </article>
+
+        <article class="docs--article" id="code">
+          <h2>Code</h2>
+          <p>Code styling is pretty basic. Just wrap anything in a <code>&lt;code&gt;</code> and it will appear like <code>this</code>. For blocks of code, wrap a <code>&lt;code&gt;</code> with a <code>&lt;pre&gt;</code> and it will look like the following.</p>
+
+          <pre><code>This is some sample code!</code></pre>
+        </article>
+
+        <article class="docs--article" id="utilities">
+        <h2>Utilities</h2>
+        <p>The following are some basic utlity momdifier classes that be helpful in a number of situations.</p>
+
+        <table class="full-width align-top">
+          <thead>
+            <th>Class</th>
+            <th>Description</th>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>.centered</code></td>
+              <td>
+                Centers the element when a width is applied.</td>
+            </tr>
+            <tr>
+              <td><code>.full-width</code></td>
+              <td>Makes the element go full width.</td>
+            </tr>
+            <tr>
+              <td><code>.max-full-width</code></td>
+              <td>Makes the max width.</td>
+            </tr>
+            <tr>
+              <td><code>.hide-text</code></td>
+              <td>Hides text using <code>font-size: 0</code>.</td>
+            </tr>
+            <tr>
+              <td><code>.hide-text</code></td>
+              <td>Hides text using <code>font-size: 0</code>.</td>
+            </tr>
+            <tr>
+              <td><code>.unloaded</code></td>
+              <td>Removes bullets from list elements.</td>
+            </tr>
+            <tr>
+              <td><code>.align-top</code></td>
+              <td>Aligns text to the top of the <code>&lt;td&gt;</code> when applied on a <code>&lt;table&gt;</code> or <code>&lt;td&gt;</code>.</td>
+            </tr>
+            <tr>
+              <td><code>.align-right</code></td>
+              <td>Aligns text to the right.</td>
+            </tr>
+            <tr>
+              <td><code>.positive</code></td>
+              <td>Assigns color to text that conveys a positive connotation (default color is <span class="positive">green</span>). This color can be globally defined by editing the value for the <code>$positive</code> variable in <em>variables.sass</em></td>
+            </tr>
+            <tr>
+              <td><code>.negative</code></td>
+              <td>Assigns color to text that conveys a negative connotation (default color is <span class="negative">red</span>). This color can be globally defined by editing the value for the <code>$negative</code> variable in <em>variables.sass</em>.</td>
+            </tr>
+            <tr>
+              <td><code>.secondary-label</code></td>
+              <td>Assigns color to text that conveys secondary or of complimentary importance (default color is <span class="secondary-label">light purple</span>). This color can be globally defined by editing the value for the <code>$secondary-label</code> variable in <em>variables.sass</em>.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        </article>
+      </section>
+
+      <section id="components">
+        <h1>Components</h1>
+        <p>Circle additionally includes numberous common components for you might want to use. All components use the <code>.circle</code> prefix to deliniate them from other custom constructions you might want to create for your own purposes. These components are all optional and will be found at the top of the <em>sass/global.sass</em>. You can be easily include or exclude these using <code>@import "circle/components"</code>.</p>
+        <hr />
+        <article class="docs--article" id="header">
+          <h2>Main Header</h2>
+          <p>The main header component uses the <code>.circle--header</code> class and it's background color can be easily modified using the <code>$header-color</code> variable in <em>sass/variables.sass</em>.</p>
+          <header class="circle--header">
+            <h1><a>Title</a></h1>
+            <nav>
+              <ul class="circle--inline">
+                <li><a>Item 1</a></li>
+                <li><a>Item 2</a></li>
+                <li><a>Item 3</a></li>
+              </ul>
+            </nav>
+          </header>
+<pre class="prettyprint">
+&lt;header class=&quot;circle--header&quot;&gt;
+  &lt;h1&gt;&lt;a&gt;Title&lt;/a&gt;&lt;/h1&gt;
+  &lt;nav&gt;
+    &lt;ul class=&quot;circle--inline&quot;&gt;
+      &lt;li&gt;&lt;a&gt;Item 1&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a&gt;Item 2&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a&gt;Item 3&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/nav&gt;
+&lt;/header&gt;
+</pre>
+        </article>
+
+        <article class="docs--article" id="page-header">
+          <h2>Page Header</h2>
+          <p>For headings that describe a particular page use the <code>.circle--page--header</code> as a container around your <code>&lt;h[#]&gt;</code> tags. Using a container with this class also sets the context for other styling of supporting lines of text. See it <a href="examples/search.html">in action here</a>.</p>
+          <div class="grid-parent">
+            <div class="grid-60">
+<pre class="prettyprint">
+&lt;div class=&quot;circle--page--header&quot;&gt;
+  &lt;h2&gt;Page Title&lt;/h2&gt;
+  &lt;p&gt;Optional supporting text&lt;/p&gt;
+&lt;/div&gt;
+</pre>
+            </div>
+            <div class="grid-40">
+              <div class="circle--page--header">
+                <h2>Page Title</h2>
+                <p>Optional supporting text</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="docs--article" id="article-header">
+          <h2>Article Header</h2>
+          <p>For article pages you can use the <code>.circle--article--header</code> class. Within this container you can use the <code>.circle--article--section</code> class for the section sub-heading, <code>.circle--article--title</code> for the article title, and <code>.circle--article--byline</code> for by lines. See it <a href="examples/index.html">in action here</a>.</p>
+
+          <div class="grid-parent">
+            <div class="grid-60">
+<pre class="prettyprint">
+&lt;div class=&quot;circle--article--header&quot;&gt;
+  &lt;h4 class=&quot;circle--article--section&quot;&gt;Section Title&lt;/h4&gt;
+  &lt;h1 class=&quot;circle--article--title&quot;&gt;Article Title&lt;/h1&gt;
+  &lt;p class=&quot;section--article--byline&quot;&gt;Article by &lt;a&gt;Author Name&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+</pre>
+            </div>
+            <div class="grid-40">
+              <div class="circle--article--header">
+                <h4 class="circle--article--section">Section Title</h4>
+                <h1 class="circle--article--title">Article Title</h1>
+                <p class="section--article--byline">Article by <a>Author Name</a></p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="docs--article" id="component-fluid-container">
+          <h2>Fluid Sandwich</h2>
+          <p>Circle's fluid sandwich component offers a table layout-like structure for situations where you want two sides of a layout fixed to the width of their contents (the bread) while a middle column flexes to fill the difference (the meat). The group of classes includes <code>.circle--fluid</code> for the parent element, with the <code>.circle--fluid--cell</code> used for each child column, with the modifier class <code>.circle--fluid--primary</code> which can be added to whatever cell you want to be the column to fill in the difference.</p>
+
+          <header class="circle--header">
+            <div class="circle--fluid">
+              <div class="circle--fluid--cell">
+                <h1 class="hide-text circle--logo"><a class="logo">Circle</a></h1>
+              </div>
+
+              <div class="circle--fluid--cell circle--fluid--primary">
+                <input type="text" placeholder="Search" />
+              </div>
+
+              <div class="circle--fluid--cell">
+                <nav>
+                  <ul>
+                    <li><a>Item 1</a></li>
+                    <li><a>Item 2</a></li>
+                    <li><a>Item 3</a></li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+          </header>
+<pre class="prettyprint">
+&lt;header class=&quot;circle--header&quot;&gt;
+  &lt;div class=&quot;circle--fluid&quot;&gt;
+    &lt;div class=&quot;circle--fluid--cell&quot;&gt;
+      &lt;h1 class=&quot;hide-text circle--logo&quot;&gt;&lt;a class=&quot;logo&quot;&gt;Circle&lt;/a&gt;&lt;/h1&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;circle--fluid--cell circle--fluid--primary&quot;&gt;
+      &lt;input type=&quot;text&quot; placeholder=&quot;Search&quot; /&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;circle--fluid--cell&quot;&gt;
+      &lt;nav&gt;
+        &lt;ul&gt;
+          &lt;li&gt;&lt;a&gt;Item 1&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a&gt;Item 2&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a&gt;Item 3&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/nav&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/header&gt;
+</pre>
+
+        </article>
+
+        <article class="docs--article" id="component-lists">
+          <h2>Lists</h2>
+          <p>Circle components include some variations on lists you might find useful for your applications.</p>
+
+          <h3>Inline Lists</h3>
+          <p>Using the <code>.circle--inline--list</code> class on lists removes the default list styling and places items inline.</p>
+
+          <div class="grid-parent">
+           <div class="grid-60">
+<pre class="prettyprint">
+&lt;ul class=&quot;circle--inline--list&quot;&gt;
+  &lt;li&gt;Item 1&lt;/li&gt;
+  &lt;li&gt;Item 2&lt;/li&gt;
+  &lt;li&gt;Item 3&lt;/li&gt;
+  &lt;li&gt;Item 4&lt;/li&gt;
+&lt;/ul&gt;
+</pre>
+            </div>
+            <div class="grid-40">
+              <ul class="circle--inline--list">
+                <li>Item 1</li>
+                <li>Item 2</li>
+                <li>Item 3</li>
+              </ul>
+            </div>
+          </div>
+
+          <h3>Filter Lists</h3>
+          <p>Filter lists is a styling used for if you have a list of filter options and need to deliniate an item as the selected filter from the rest.</p>
+                    <div class="grid-parent">
+           <div class="grid-60">
+<pre class="prettyprint">
+&lt;ul class=&quot;circle--filter--list&quot;&gt;
+  &lt;li&gt;&lt;a class=&quot;selected&quot;&gt;Item 1&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a&gt;Item 2&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a&gt;Item 3&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</pre>
+            </div>
+            <div class="grid-40">
+              <ul class="circle--filter--list">
+                <li><a class="selected">Item 1</a></li>
+                <li><a>Item 2</a></li>
+                <li><a>Item 3</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <h3>Clone Lists</h3>
+          <p>Clone lists are lists that provide the functionality to add and/or remove list items. Common use cases are with forms where you have a form that builds lists item by item. Clone lists use the <code>.circle--clone--list</code> class applied to a <code>&lt;ul&gt;</code> or <code>&lt;ol&gt;</code>. Additionally, an anchor with the class <code>.circle--clone--add</code> needs to be nested inside the children <code>&lt;li&gt;</code> elements. Optionally, there can be an achor to remove the list item using the <code>.circle--clone--remove</code> class. Remove links are hidden by default in the case that there is only one list item.</p>
+
+          <div class="grid-parent">
+            <div class="grid-60">
+<pre class="prettyprint">
+&lt;ul class=&quot;circle--clone--list&quot;&gt;
+  &lt;li&gt;
+    &lt;input type=&quot;text&quot; placeholder=&quot;Item&quot; /&gt;
+    &lt;a class=&quot;circle--clone--add&quot;&gt;Add&lt;/a&gt;
+    &lt;a class=&quot;circle--clone--remove&quot;&gt;Remove&lt;/a&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+</pre>
+            </div>
+            <div class="grid-40">
+              <ul class="circle--clone--list">
+                <li>
+                  <input type="text" placeholder="Item" />
+                  <a class="circle--clone--add">Add</a>
+                  <a class="circle--clone--remove">Remove</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <h3>Pilled List</h3>
+          <p>Pilled lists are lists of links which one item has a selected state. Common uses could be page tabs or filters.</p>
+
+          <div class="grid-parent">
+            <div class="grid-60">
+<pre class="prettyprint">
+&lt;ul class=&quot;circle--clone--list&quot;&gt;
+  &lt;li&gt;&lt;a class=&quot;selected&quot;&gt;Item 1&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a&gt;Item 2&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a&gt;Item 3&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</pre>
+            </div>
+            <div class="grid-40">
+              <ul class="circle--pill--list">
+                <li><a class="selected">Item 1</a></li>
+                <li><a>Item 2</a></li>
+                <li><a>Item 3</a></li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <article class="docs--article" id="component-tables">
+          <h2>Tables</h2>
+          <p>Circle provides alternate styling for tables used for results listing.</p>
+
+<pre class="prettyprint">
+&lt;table class=&quot;circle--table&quot;&gt;
+  &lt;thead&gt;
+    &lt;th&gt;Account&lt;/th&gt;
+    &lt;th class=&quot;align-right&quot;&gt;Balance&lt;/th&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;
+        &lt;h3&gt;Checking&lt;/h3&gt;
+        &lt;p&gt;#346698-09&lt;/p&gt;
+      &lt;/td&gt;
+      &lt;td class=&quot;align-right&quot;&gt;
+        &lt;h3 class=&quot;positive&quot;&gt;$5,984.23&lt;/h3&gt;
+        &lt;p&gt;USD&lt;/p&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;
+        &lt;h3&gt;Savings&lt;/h3&gt;
+        &lt;p&gt;#346698-09&lt;/p&gt;
+      &lt;/td&gt;
+      &lt;td class=&quot;align-right&quot;&gt;
+        &lt;h3 class=&quot;positive&quot;&gt;$21,481.03&lt;/h3&gt;
+        &lt;p&gt;USD&lt;/p&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;
+        &lt;h3&gt;Visa Card&lt;/h3&gt;
+        &lt;p&gt;#346698-09&lt;/p&gt;
+      &lt;/td&gt;
+      &lt;td class=&quot;align-right&quot;&gt;
+        &lt;h3 class=&quot;negative&quot;&gt;-$85.17&lt;/h3&gt;
+        &lt;p&gt;USD&lt;/p&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;!-- The .align-right class is a generic utility class that aligns text to the right --&gt;
+&lt;!-- The .positive and .negative classes are generic utility classes for assigning colors --&gt;
+</pre>
+
+          <table class="circle--table">
+            <thead>
+              <th>Account</th>
+              <th class="align-right">Balance</th>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <h3>Checking</h3>
+                  <p>#346698-09</p>
+                </td>
+                <td class="align-right">
+                  <h3 class="positive">$5,984.23</h3>
+                  <p>USD</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <h3>Savings</h3>
+                  <p>#346698-09</p>
+                </td>
+                <td class="align-right">
+                  <h3 class="positive">$21,481.03</h3>
+                  <p>USD</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <h3>Visa Card</h3>
+                  <p>#346698-09</p>
+                </td>
+                <td class="align-right">
+                  <h3 class="negative">-$85.17</h3>
+                  <p>USD</p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </article>
+
+        <article class="docs--article" id="component-forms">
+          <h2>Forms</h2>
+          <p>Circle offers some basic sizing and grouping components for form elements.</p>
+
+          <h3>Field Classes</h3>
+          <p>For cases where you want your form fields contents to take on the styling that immitates the output use the following classes.</p>
+          <table class="full-width">
+            <thead>
+              <th>Class</th>
+              <th>Description</th>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>.circle--input--h1</code></td>
+                <td>Contents take on the styling of the <code>&lt;h1&gt;</code> tag.</td>
+              </tr>
+              <tr>
+                <td><code>.circle--input--h2</code></td>
+                <td>Contents take on the styling of the <code>&lt;h2&gt;</code> tag.</td>
+              </tr>
+              <tr>
+                <td><code>.circle--input--h3</code></td>
+                <td>Contents take on the styling of the <code>&lt;h3&gt;</code> tag.</td>
+              </tr>
+              <tr>
+                <td><code>.circle--input--h4</code></td>
+                <td>Contents take on the styling of the <code>&lt;h4&gt;</code> tag.</td>
+              </tr>
+              <tr>
+                <td><code>.circle--input--h5</code></td>
+                <td>Contents take on the styling of the <code>&lt;h5&gt;</code> tag.</td>
+              </tr>
+              <tr>
+                <td><code>.circle--input--h6</code></td>
+                <td>Contents take on the styling of the <code>&lt;h6&gt;</code> tag.</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h3>Textareas</h3>
+          <p>By default, <code>&lt;textarea&gt;</code> do not allow for scrolling. Instead, textareas automatically grow to fit the content written within. In terms of styling empty textareas, Circle provides the <code>.circle--input--textarea</code> class in the case that you want the default height of a textarea to be equal to the height of a standard text <code>&lt;input&gt;</code>.</p>
+
+          <div class="grid-parent">
+            <div class="grid-60">
+<pre class="prettyprint">
+&lt;textarea placeholder=&quot;Title&quot; class=&quot;circle--textarea--input circle--input--h2&quot;&gt;&lt;/textarea&gt;
+
+&lt;textarea placeholder=&quot;Description&quot;&gt;&lt;/textarea&gt;
+</pre>
+            </div>
+            <div class="grid-40">
+              <textarea placeholder="Title" class="circle--textarea--input circle--input--h2"></textarea>
+
+              <textarea placeholder="Description"></textarea>
+            </div>
+          </div>
+        </article>
+
+      </section>
+
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+  <title>Circle</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- FONTS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link href='https://fonts.googleapis.com/css?family=Work+Sans:400,500' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Cousine' rel='stylesheet' type='text/css'>
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="css/global.css">
+
+  <!-- JS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+  <script type="text/javascript" src="js/autogrow.js"></script>
+  <script type="text/javascript" src="js/global.js"></script>
+
+
+</head>
+<body>
+  <header class="circle--header">
+    <div class="bounds">
+      <div class="circle--fluid">
+        <div class="circle--fluid--cell">
+          <h1 class="hide-text circle--logo"><a class="logo" href="index.html">Circle</a></h1>
+        </div>
+        <div class="circle--fluid--cell circle--fluid--primary">
+          <div class="circle--search">
+            <input type="text" placeholder="Search Projects..." />
+            <button>
+              <svg version="1.1" class="search" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 12 12" xml:space="preserve">
+                <path d="M12,10.6L8.3,6.9C8.7,6.2,9,5.4,9,4.5C9,2,7,0,4.5,0S0,2,0,4.5S2,9,4.5,9c0.9,0,1.7-0.3,2.4-0.7l3.7,3.7L12,10.6z M2,4.5
+                C2,3.1,3.1,2,4.5,2S7,3.1,7,4.5C7,5.9,5.9,7,4.5,7S2,5.9,2,4.5z"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="circle--fluid--cell circle--fluid--secondary">
+          <nav>
+            <ul class="circle--inline">
+              <li><a href="signup.html">Sign Up</a></li>
+              <li><a href="signin.html">Sign In</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="circle--actions--bar">
+    <nav class="bounds">
+      <ul class="circle--pill--list">
+        <li><a href="applications.html">Applications</a></li>
+        <li><a class="selected" href="profile.html">Profile</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="bounds circle--page">
+    <div class="circle--page--header circle--fluid">
+      <div class="circle--fluid--cell circle--fluid--primary">
+        <h2>Profile</h2>
+      </div>
+      <div class="circle--fluid--cell circle--fluid--secondary">
+        <a class="button button-primary icon-on-left" href="profile.html">Save Changes</a>
+      </div>
+    </div>
+
+    <div class="grid-70">
+      <input type="text" value="Wendy McElroy" placeholder="Full Name" class="circle--input--h1">
+      <div class="circle--article--body">
+        <textarea placeholder="Tell us about yourself...">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</textarea>
+      </div>
+
+      <h2>Past Projects</h2>
+      <table class="u-full-width circle--table">
+        <thead>
+          <tr>
+            <th>Project Title</th>
+            <th class="circle--cell--right">Project Needs</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="clickable-row" data-href="project.html">
+            <td>
+              <h3>Invoice Delivery Tool</h3>
+            </td>
+            <td class="circle--cell--right">
+              <span class="secondary-label">Rails Developer</span>
+            </td>
+          </tr>
+          <tr class="clickable-row" data-href="project.html">
+            <td>
+              <h3>Twitter Client</h3>
+            </td>
+            <td class="circle--cell--right">
+              <span class="secondary-label">Designer</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="grid-25 grid-push-5">
+
+      <div class="circle--secondary--module">
+        <div class="circle--primary--avatar">
+          <a class="button">
+            Upload Photo
+            <input type="file">
+          </a>
+        </div>
+      </div>
+
+      <div class="circle--secondary--module">
+        <h4>My Skills</h4>
+        <ul class="circle--clone--list">
+          <li>
+            <input type="text" placeholder="Skill" />
+            <a class="circle--clone--add">Add Skill</a>
+            <a class="circle--clone--remove">Remove</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="circle--secondary--module">
+        <h4>My Projects</h4>
+        <ul class="circle--clone--list">
+          <li>
+            <input type="text" placeholder="Project Name" />
+            <input type="text" placeholder="Project URL" />
+            <a class="circle--clone--add">Add Project</a>
+            <a class="circle--clone--remove">Remove</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

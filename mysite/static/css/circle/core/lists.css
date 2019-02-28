@@ -1,0 +1,36 @@
+/* line 4, ../../../sass/circle/core/lists.sass */
+ul {
+  list-style: circle inside;
+}
+
+/* line 7, ../../../sass/circle/core/lists.sass */
+ol {
+  list-style: decimal inside;
+  padding-left: 0;
+  margin-top: 0;
+}
+
+/* line 12, ../../../sass/circle/core/lists.sass */
+ul {
+  padding-left: 0;
+  margin-top: 0;
+}
+/* line 15, ../../../sass/circle/core/lists.sass */
+ul ul,
+ul ol {
+  margin: 1.5rem 0 1.5rem 3rem;
+  font-size: 90%;
+}
+
+/* line 21, ../../../sass/circle/core/lists.sass */
+ol ol,
+ol ul {
+  margin: 1.5rem 0 1.5rem 3rem;
+  font-size: 90%;
+}
+
+/* line 26, ../../../sass/circle/core/lists.sass */
+li {
+  margin-bottom: 1rem;
+  font-size: 1.6rem;
+}

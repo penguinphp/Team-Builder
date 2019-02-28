@@ -1,0 +1,82 @@
+/*
+Error: Undefined variable: "$link".
+        on line 6 of /Users/Tyson/circle/sass/circle/core/forms.sass
+
+1: // Forms
+2: ////////////////////////////////////////////////////
+3: 
+4: textarea
+5:   padding: 15px
+6:   border: 1px solid lighten($link, 30%)
+7:   box-shadow: none
+8:   box-sizing: border-box
+9:   min-height: 200px
+10:   width: 100%
+11:   font-size: 1.6rem
+
+Backtrace:
+/Users/Tyson/circle/sass/circle/core/forms.sass:6
+/Users/Tyson/.rvm/gems/ruby-2.1.5/gems/sass-3.4.9/lib/sass/script/tree/variable.rb:49:in `_perform'
+/Users/Tyson/.rvm/gems/ruby-2.1.5/gems/sass-3.4.9/lib/sass/script/tree/node.rb:50:in `perform'
+/Users/Tyson/.rvm/gems/ruby-2.1.5/gems/sass-3.4.9/lib/sass/script/tree/funcall.rb:170:in `perform_arg'
+/Users/Tyson/.rvm/gems/ruby-2.1.5/gems/sass-3.4.9/lib/sass/script/tree/funcall.rb:124:in `block in _perform'
+/Users/Tyson/.rvm/gems/ruby-2.1.5/gems/sass-3.4.9/lib/sass/script/tree/funcall.rb:124:in `each'
+/Users/Tyson/.rvm/gems/ruby-2.1.5/gems/sass-3.4.9/lib/sass/script/tree/funcall.rb:124:in `each_with_index'
+/Users/Tyson/.rvm/gems/ruby-2.1.5/gems/sass-3.4.9/lib/sass/script/tree/funcall.rb:124:in `each'
+/Users/Tyson/.rvm/gems/ruby-2.1.5/gems/sass-3.4.9/lib/sass/script/tree/funcall.rb:124:in `map'
+/Users/Tyson/.rvm/gems/ruby-2.1.5/gems/sass-3.4.9/lib/sass/script/tree/funcall.rb:124:in `_perform'
+/Users/Tyson/.rvm/gems/ruby-2.1.5/gems/sass-3.4.9/lib/sass/script/tree/node.rb:50:in `perform'
+/Users/Tyson/.rvm/gems/ruby-2.1.5/gems/sass-3.4.9/lib/sass/script/tree/list_literal.rb:62:in `block in _perform'
+/Users/Tyson/.rvm/gems/ruby-2.1.5/gems/sass-3.4.9/lib/sass/script/tree/list_literal.rb:62:in `map'
+/Users/Tyson/.rvm/gems/ruby-2.1.5/gems/sass-3.4.9/lib/sass/script/tree/list_literal.rb:62:in `_perform'
+/Users/Tyson/.rvm/gems/ruby-2.1.5/gems/sass-3.4.9/lib/sass/script/tree/node.rb:50:in `perform'
+/Users/Tyson/.rvm/gems/ruby-2.1.5/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:384:in `visit_prop'
+/Users/Tyson/.rvm/gems/ruby-2.1.5/gems/sass-3.4.9/lib/sass/tree/visitors/base.rb:36:in `visit'
+/Users/Tyson/.rvm/gems/ruby-2.1.5/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
+/Users/Tyson/.rvm/gems/ruby-2.1.5/gems/sass-3.4.9/lib/sass/stack.rb:79:in `block in with_base'
+/Users/Tyson/.rvm/gems/ruby-2.1.5/gems/sass-3.4.9/lib/sass/stack.rb:115:in `with_frame'
+/Users/Tyson/.rvm/gems/ruby-2.1.5/gems/sass-3.4.9/lib/sass/stack.rb:79:in `with_base'
+/Users/Tyson/.rvm/gems/ruby-2.1.5/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:158:in `visit'
+/Users/Tyson/.rvm/gems/ruby-2.1.5/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:420:in `block (2 levels) in visit_rule'
+/Users/Tyson/.rvm/gems/ruby-2.1.5/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:420:in `map'
+/Users/Tyson/.rvm/gems/ruby-2.1.5/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:420:in `block in visit_rule'
+/Users/Tyson/.rvm/gems/ruby-2.1.5/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
+/Users/Tyson/.rvm/gems/ruby-2.1.5/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:418:in `visit_rule'
+/Users/Tyson/.rvm/gems/ruby-2.1.5/gems/sass-3.4.9/lib/sass/tree/visitors/base.rb:36:in `visit'
+/Users/Tyson/.rvm/gems/ruby-2.1.5/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
+/Users/Tyson/.rvm/gems/ruby-2.1.5/gems/sass-3.4.9/lib/sass/stack.rb:79:in `block in with_base'
+/Users/Tyson/.rvm/gems/ruby-2.1.5/gems/sass-3.4.9/lib/sass/stack.rb:115:in `with_frame'
+/Users/Tyson/.rvm/gems/ruby-2.1.5/gems/sass-3.4.9/lib/sass/stack.rb:79:in `with_base'
+/Users/Tyson/.rvm/gems/ruby-2.1.5/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:158:in `visit'
+/Users/Tyson/.rvm/gems/ruby-2.1.5/gems/sass-3.4.9/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
+/Users/Tyson/.rvm/gems/ruby-2.1.5/gems/sass-3.4.9/lib/sass/tree/visitors/base.rb:52:in `map'
+/Users/Tyson/.rvm/gems/ruby-2.1.5/gems/sass-3.4.9/lib/sass/tree/visitors/base.rb:52:in `visit_children'
+/Users/Tyson/.rvm/gems/ruby-2.1.5/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:167:in `block in visit_children'
+/Users/Tyson/.rvm/gems/ruby-2.1.5/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
+/Users/Tyson/.rvm/gems/ruby-2.1.5/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:166:in `visit_children'
+/Users/Tyson/.rvm/gems/ruby-2.1.5/gems/sass-3.4.9/lib/sass/tree/visitors/base.rb:36:in `block in visit'
+/Users/Tyson/.rvm/gems/ruby-2.1.5/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:186:in `visit_root'
+/Users/Tyson/.rvm/gems/ruby-2.1.5/gems/sass-3.4.9/lib/sass/tree/visitors/base.rb:36:in `visit'
+/Users/Tyson/.rvm/gems/ruby-2.1.5/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:157:in `visit'
+/Users/Tyson/.rvm/gems/ruby-2.1.5/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:8:in `visit'
+/Users/Tyson/.rvm/gems/ruby-2.1.5/gems/sass-3.4.9/lib/sass/tree/root_node.rb:36:in `css_tree'
+/Users/Tyson/.rvm/gems/ruby-2.1.5/gems/sass-3.4.9/lib/sass/tree/root_node.rb:20:in `render'
+/Users/Tyson/.rvm/gems/ruby-2.1.5/gems/sass-3.4.9/lib/sass/engine.rb:268:in `render'
+/Users/Tyson/.rvm/gems/ruby-2.1.5/gems/sass-3.4.9/lib/sass/plugin/compiler.rb:492:in `update_stylesheet'
+/Users/Tyson/.rvm/gems/ruby-2.1.5/gems/sass-3.4.9/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
+/Users/Tyson/.rvm/gems/ruby-2.1.5/gems/sass-3.4.9/lib/sass/plugin/compiler.rb:209:in `each'
+/Users/Tyson/.rvm/gems/ruby-2.1.5/gems/sass-3.4.9/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
+/Users/Tyson/.rvm/gems/ruby-2.1.5/gems/sass-3.4.9/lib/sass/plugin/compiler.rb:470:in `on_file_changed'
+/Users/Tyson/.rvm/gems/ruby-2.1.5/gems/sass-3.4.9/lib/sass/plugin/compiler.rb:328:in `block in watch'
+/Users/Tyson/.rvm/gems/ruby-2.1.5/gems/sass-3.4.9/vendor/listen/lib/listen/listener.rb:252:in `call'
+/Users/Tyson/.rvm/gems/ruby-2.1.5/gems/sass-3.4.9/vendor/listen/lib/listen/listener.rb:252:in `on_change'
+/Users/Tyson/.rvm/gems/ruby-2.1.5/gems/sass-3.4.9/vendor/listen/lib/listen/listener.rb:290:in `block in initialize_adapter'
+/Users/Tyson/.rvm/gems/ruby-2.1.5/gems/sass-3.4.9/vendor/listen/lib/listen/adapter.rb:254:in `call'
+/Users/Tyson/.rvm/gems/ruby-2.1.5/gems/sass-3.4.9/vendor/listen/lib/listen/adapter.rb:254:in `report_changes'
+/Users/Tyson/.rvm/gems/ruby-2.1.5/gems/sass-3.4.9/vendor/listen/lib/listen/adapter.rb:323:in `poll_changed_directories'
+/Users/Tyson/.rvm/gems/ruby-2.1.5/gems/sass-3.4.9/vendor/listen/lib/listen/adapter.rb:299:in `block in start_poller'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: Undefined variable: \"$link\".\A         on line 6 of /Users/Tyson/circle/sass/circle/core/forms.sass\A \A 1: // Forms\A 2: ////////////////////////////////////////////////////\A 3: \A 4: textarea\A 5:   padding: 15px\A 6:   border: 1px solid lighten($link, 30%)\A 7:   box-shadow: none\A 8:   box-sizing: border-box\A 9:   min-height: 200px\A 10:   width: 100%\A 11:   font-size: 1.6rem"; }

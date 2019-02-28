@@ -1,0 +1,95 @@
+/*
+Error: Undefined mixin 'clearfix'.
+        on line 26 of /Users/Tyson/social_team_building/sass/circle/components/containers.sass, in `clearfix'
+        from line 26 of /Users/Tyson/social_team_building/sass/circle/components/containers.sass
+
+21:       text-align: right
+22: 
+23:   &--secondary
+24:     &--module
+25:       margin-bottom: 50px
+26:       +clearfix
+27:       >
+28:         #{$headers}
+29:           font-family: $body-font
+30:           color: rgba(#222, .3)
+31:           font-size: 1.4rem
+
+Backtrace:
+/Users/Tyson/social_team_building/sass/circle/components/containers.sass:26:in `clearfix'
+/Users/Tyson/social_team_building/sass/circle/components/containers.sass:26
+/Users/Tyson/.rvm/gems/ruby-2.2.3/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:349:in `block in visit_mixin'
+/Users/Tyson/.rvm/gems/ruby-2.2.3/gems/sass-3.4.21/lib/sass/stack.rb:98:in `block in with_mixin'
+/Users/Tyson/.rvm/gems/ruby-2.2.3/gems/sass-3.4.21/lib/sass/stack.rb:115:in `with_frame'
+/Users/Tyson/.rvm/gems/ruby-2.2.3/gems/sass-3.4.21/lib/sass/stack.rb:98:in `with_mixin'
+/Users/Tyson/.rvm/gems/ruby-2.2.3/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:347:in `visit_mixin'
+/Users/Tyson/.rvm/gems/ruby-2.2.3/gems/sass-3.4.21/lib/sass/tree/visitors/base.rb:36:in `visit'
+/Users/Tyson/.rvm/gems/ruby-2.2.3/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
+/Users/Tyson/.rvm/gems/ruby-2.2.3/gems/sass-3.4.21/lib/sass/stack.rb:79:in `block in with_base'
+/Users/Tyson/.rvm/gems/ruby-2.2.3/gems/sass-3.4.21/lib/sass/stack.rb:115:in `with_frame'
+/Users/Tyson/.rvm/gems/ruby-2.2.3/gems/sass-3.4.21/lib/sass/stack.rb:79:in `with_base'
+/Users/Tyson/.rvm/gems/ruby-2.2.3/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:158:in `visit'
+/Users/Tyson/.rvm/gems/ruby-2.2.3/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:431:in `block (2 levels) in visit_rule'
+/Users/Tyson/.rvm/gems/ruby-2.2.3/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:431:in `map'
+/Users/Tyson/.rvm/gems/ruby-2.2.3/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:431:in `block in visit_rule'
+/Users/Tyson/.rvm/gems/ruby-2.2.3/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
+/Users/Tyson/.rvm/gems/ruby-2.2.3/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:429:in `visit_rule'
+/Users/Tyson/.rvm/gems/ruby-2.2.3/gems/sass-3.4.21/lib/sass/tree/visitors/base.rb:36:in `visit'
+/Users/Tyson/.rvm/gems/ruby-2.2.3/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
+/Users/Tyson/.rvm/gems/ruby-2.2.3/gems/sass-3.4.21/lib/sass/stack.rb:79:in `block in with_base'
+/Users/Tyson/.rvm/gems/ruby-2.2.3/gems/sass-3.4.21/lib/sass/stack.rb:115:in `with_frame'
+/Users/Tyson/.rvm/gems/ruby-2.2.3/gems/sass-3.4.21/lib/sass/stack.rb:79:in `with_base'
+/Users/Tyson/.rvm/gems/ruby-2.2.3/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:158:in `visit'
+/Users/Tyson/.rvm/gems/ruby-2.2.3/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:431:in `block (2 levels) in visit_rule'
+/Users/Tyson/.rvm/gems/ruby-2.2.3/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:431:in `map'
+/Users/Tyson/.rvm/gems/ruby-2.2.3/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:431:in `block in visit_rule'
+/Users/Tyson/.rvm/gems/ruby-2.2.3/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
+/Users/Tyson/.rvm/gems/ruby-2.2.3/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:429:in `visit_rule'
+/Users/Tyson/.rvm/gems/ruby-2.2.3/gems/sass-3.4.21/lib/sass/tree/visitors/base.rb:36:in `visit'
+/Users/Tyson/.rvm/gems/ruby-2.2.3/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
+/Users/Tyson/.rvm/gems/ruby-2.2.3/gems/sass-3.4.21/lib/sass/stack.rb:79:in `block in with_base'
+/Users/Tyson/.rvm/gems/ruby-2.2.3/gems/sass-3.4.21/lib/sass/stack.rb:115:in `with_frame'
+/Users/Tyson/.rvm/gems/ruby-2.2.3/gems/sass-3.4.21/lib/sass/stack.rb:79:in `with_base'
+/Users/Tyson/.rvm/gems/ruby-2.2.3/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:158:in `visit'
+/Users/Tyson/.rvm/gems/ruby-2.2.3/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:431:in `block (2 levels) in visit_rule'
+/Users/Tyson/.rvm/gems/ruby-2.2.3/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:431:in `map'
+/Users/Tyson/.rvm/gems/ruby-2.2.3/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:431:in `block in visit_rule'
+/Users/Tyson/.rvm/gems/ruby-2.2.3/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
+/Users/Tyson/.rvm/gems/ruby-2.2.3/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:429:in `visit_rule'
+/Users/Tyson/.rvm/gems/ruby-2.2.3/gems/sass-3.4.21/lib/sass/tree/visitors/base.rb:36:in `visit'
+/Users/Tyson/.rvm/gems/ruby-2.2.3/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
+/Users/Tyson/.rvm/gems/ruby-2.2.3/gems/sass-3.4.21/lib/sass/stack.rb:79:in `block in with_base'
+/Users/Tyson/.rvm/gems/ruby-2.2.3/gems/sass-3.4.21/lib/sass/stack.rb:115:in `with_frame'
+/Users/Tyson/.rvm/gems/ruby-2.2.3/gems/sass-3.4.21/lib/sass/stack.rb:79:in `with_base'
+/Users/Tyson/.rvm/gems/ruby-2.2.3/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:158:in `visit'
+/Users/Tyson/.rvm/gems/ruby-2.2.3/gems/sass-3.4.21/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
+/Users/Tyson/.rvm/gems/ruby-2.2.3/gems/sass-3.4.21/lib/sass/tree/visitors/base.rb:52:in `map'
+/Users/Tyson/.rvm/gems/ruby-2.2.3/gems/sass-3.4.21/lib/sass/tree/visitors/base.rb:52:in `visit_children'
+/Users/Tyson/.rvm/gems/ruby-2.2.3/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:167:in `block in visit_children'
+/Users/Tyson/.rvm/gems/ruby-2.2.3/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
+/Users/Tyson/.rvm/gems/ruby-2.2.3/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:166:in `visit_children'
+/Users/Tyson/.rvm/gems/ruby-2.2.3/gems/sass-3.4.21/lib/sass/tree/visitors/base.rb:36:in `block in visit'
+/Users/Tyson/.rvm/gems/ruby-2.2.3/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:186:in `visit_root'
+/Users/Tyson/.rvm/gems/ruby-2.2.3/gems/sass-3.4.21/lib/sass/tree/visitors/base.rb:36:in `visit'
+/Users/Tyson/.rvm/gems/ruby-2.2.3/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:157:in `visit'
+/Users/Tyson/.rvm/gems/ruby-2.2.3/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:8:in `visit'
+/Users/Tyson/.rvm/gems/ruby-2.2.3/gems/sass-3.4.21/lib/sass/tree/root_node.rb:36:in `css_tree'
+/Users/Tyson/.rvm/gems/ruby-2.2.3/gems/sass-3.4.21/lib/sass/tree/root_node.rb:20:in `render'
+/Users/Tyson/.rvm/gems/ruby-2.2.3/gems/sass-3.4.21/lib/sass/engine.rb:278:in `render'
+/Users/Tyson/.rvm/gems/ruby-2.2.3/gems/sass-3.4.21/lib/sass/plugin/compiler.rb:492:in `update_stylesheet'
+/Users/Tyson/.rvm/gems/ruby-2.2.3/gems/sass-3.4.21/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
+/Users/Tyson/.rvm/gems/ruby-2.2.3/gems/sass-3.4.21/lib/sass/plugin/compiler.rb:209:in `each'
+/Users/Tyson/.rvm/gems/ruby-2.2.3/gems/sass-3.4.21/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
+/Users/Tyson/.rvm/gems/ruby-2.2.3/gems/sass-3.4.21/lib/sass/plugin/compiler.rb:471:in `on_file_changed'
+/Users/Tyson/.rvm/gems/ruby-2.2.3/gems/sass-3.4.21/lib/sass/plugin/compiler.rb:328:in `block in watch'
+/Users/Tyson/.rvm/gems/ruby-2.2.3/gems/listen-2.8.5/lib/listen/listener.rb:282:in `call'
+/Users/Tyson/.rvm/gems/ruby-2.2.3/gems/listen-2.8.5/lib/listen/listener.rb:282:in `_process_changes'
+/Users/Tyson/.rvm/gems/ruby-2.2.3/gems/listen-2.8.5/lib/listen/listener.rb:246:in `block in _wait_for_changes'
+/Users/Tyson/.rvm/gems/ruby-2.2.3/gems/listen-2.8.5/lib/listen/listener.rb:229:in `loop'
+/Users/Tyson/.rvm/gems/ruby-2.2.3/gems/listen-2.8.5/lib/listen/listener.rb:229:in `_wait_for_changes'
+/Users/Tyson/.rvm/gems/ruby-2.2.3/gems/listen-2.8.5/lib/listen/listener.rb:318:in `block in _start_wait_thread'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: Undefined mixin 'clearfix'.\A         on line 26 of /Users/Tyson/social_team_building/sass/circle/components/containers.sass, in `clearfix'\A         from line 26 of /Users/Tyson/social_team_building/sass/circle/components/containers.sass\A \A 21:       text-align: right\A 22: \A 23:   &--secondary\A 24:     &--module\A 25:       margin-bottom: 50px\A 26:       +clearfix\A 27:       >\A 28:         #{$headers}\A 29:           font-family: $body-font\A 30:           color: rgba(#222, .3)\A 31:           font-size: 1.4rem"; }
