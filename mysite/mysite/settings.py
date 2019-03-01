@@ -125,11 +125,11 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
 
-AUTH_USER_MODEL = "accounts.User"
+#AUTH_USER_MODEL = "accounts.User"
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "files")
 MEDIA_URL = '/files/'
 
-LOGIN_REDIRECT_URL = "home"
+
 
 

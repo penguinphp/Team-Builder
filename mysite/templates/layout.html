@@ -54,75 +54,19 @@
         <div class="circle--fluid--cell circle--fluid--secondary">
           <nav>
             <ul class="circle--inline">
+                {% if user.is_authenticated %}
+                <li><a href="{% url 'accounts:logout' %}">Sign Out</a></li>
+                <li><a href="{% url 'accounts:profile' %}">My Profile</a></li>
+                {% else %}
               <li><a href="{% url 'accounts:register' %}">Sign Up</a></li>
-              <li><a href="signin.html">Sign In</a></li>
+              <li><a href="{% url 'accounts:login' %}">Sign In</a></li>
+                {% endif %}
             </ul>
           </nav>
         </div>
       </div>
     </div>
   </header>
-
-  <div class="bounds circle--page">
-    <div class="circle--page--header circle--fluid">
-      <div class="circle--fluid--cell circle--fluid--primary">
-        <h2>Projects</h2>
-      </div>
-      <div class="circle--fluid--cell circle--fluid--secondary">
-        <a class="button button-primary icon-on-left" href="project_new.html">
-          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 13 13" style="enable-background:new 0 0 13 13;" xml:space="preserve" class="add">
-            <polygon points="7,6 7,0 6,0 6,6 0,6 0,7 6,7 6,13 7,13 7,7 13,7 13,6 "/>
-          </svg>
-          New Project
-        </a>
-      </div>
-    </div>
-
-    <div class="grid-25">
-      <div class="circle--filter circle--secondary--module">
-        <h4>Project Needs</h4>
-        <ul class="circle--filter--list">
-          <li><a class="selected">All Needs</a></li>
-          <li><a>Android Developer</a></li>
-          <li><a>Designer</a></li>
-          <li><a>Java Developer</a></li>
-          <li><a>PHP Developer</a></li>
-          <li><a>Python Developer</a></li>
-          <li><a>Rails Developer</a></li>
-          <li><a>WordPress Developer</a></li>
-          <li><a>iOS Developer</a></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="grid-70 grid-push-5">
-      <table class="u-full-width circle--table">
-        <thead>
-          <tr>
-            <th>Project Title</th>
-            <th class="circle--cell--right">Project Needs</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr class="clickable-row" data-href="project.html">
-            <td>
-              <h3>Invoice Delivery Tool</h3>
-            </td>
-            <td class="circle--cell--right">
-              <span class="secondary-label">Rails Developer</span>
-            </td>
-          </tr>
-          <tr class="clickable-row" data-href="project.html">
-            <td>
-              <h3>Twitter Client</h3>
-            </td>
-            <td class="circle--cell--right">
-              <span class="secondary-label">Designer</span>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
+{% block content %}{% endblock content %}
 </body>
 </html>

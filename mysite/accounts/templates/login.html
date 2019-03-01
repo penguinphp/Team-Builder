@@ -1,0 +1,9 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<form method="POST" action="{% url 'accounts:login' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" class="button-primary" value="Sign In">
+</form>
+{% endblock %}
