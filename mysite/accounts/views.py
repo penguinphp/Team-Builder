@@ -5,9 +5,10 @@ from django.core.urlresolvers import reverse_lazy
 from django.contrib.auth import logout
 from django.http import HttpResponseRedirect
 from django.contrib import messages
-from django.contrib.auth.forms import AuthenticationForm, UserChangeForm
-from .models import Profile
+from django.contrib.auth.forms import AuthenticationForm, UserChangeForm, PasswordChangeForm
+from .models import Profile, User
 from .forms import EditProfileForm
+from django.contrib.auth import update_session_auth_hash
 
 
 def register(request):
@@ -56,7 +57,7 @@ def my_profile(request):
 
 def edit_profile(request):
     if request.method == 'POST':
-        form = EditProfileForm(request.POST, instance=request.user)
+        form = EditProfileForm(request.POST, instance=request.user, files=request.FILES)
 
         if form.is_valid():
             form.save()
@@ -68,7 +69,16 @@ def edit_profile(request):
         return render(request, 'edit_profile.html', args)
 
 
-
-
-
-
+def change_password(request):
+    if request.method == 'POST':
+        form = PasswordChangeForm(request.user, request.POST)
+        if form.is_valid():
+            user = form.save()
+            update_session_auth_hash(request, user)
+            messages.success(request, 'Your password was successfully updated!')
+            return redirect('/accounts/profile')
+        else:
+            messages.error(request, 'Please correct the error below.')
+    else:
+        form = PasswordChangeForm(request.user)
+    return render(request, 'change_password.html', {'form': form})

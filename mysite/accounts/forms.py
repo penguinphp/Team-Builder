@@ -16,10 +16,17 @@ class SignUpForm(UserCreationForm):
 
 
 class EditProfileForm(UserChangeForm):
+    def __init__(self, *args, **kwargs):
+        super(EditProfileForm, self).__init__(*args, **kwargs)
+        del self.fields['password']
+
+    first_name = forms.CharField(required=True)
+    last_name = forms.CharField(required=True)
+    email = forms.EmailField(required=False)
 
     class Meta:
-        model = User
-        fields = ('first_name', 'last_name', 'email', 'password',)
+        model = Profile
+        fields = ('first_name', 'last_name', 'email', 'password', 'avatar',)
 
 
 

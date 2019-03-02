@@ -64,7 +64,9 @@
 
       <div class="circle--secondary--module">
         <div class="circle--primary--avatar">
-
+          {% if profile.avatar %}
+            <img src="{{ profile.avatar.url }}">
+          {% endif %}
         </div>
       </div>
 
