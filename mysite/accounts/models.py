@@ -2,6 +2,18 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
+from multiselectfield import MultiSelectField
+
+SKILL_CHOICES = (
+        ('android', "Android Developer"),
+        ('designer', "Designer"),
+        ('java', "Java Developer"),
+        ('php', "PHP Developer"),
+        ('python', "Python Developer"),
+        ('rails', "Rails Developer"),
+        ('wordpress', "Wordpress Devloper"),
+        ('ios', "iOS Developer")
+    )
 
 
 class Profile(models.Model):
@@ -9,7 +21,8 @@ class Profile(models.Model):
     bio = models.CharField(max_length=500, blank=True)
     location = models.CharField(max_length=30, blank=True)
     birth_date = models.DateField(null=True, blank=True)
-    avatar = models.ImageField(upload_to='/images/', blank=True)
+    avatar = models.ImageField(upload_to='images/', blank=True)
+    skills = MultiSelectField(choices=SKILL_CHOICES)
 
 
 @receiver(post_save, sender=User)

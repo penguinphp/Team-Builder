@@ -26,7 +26,20 @@ class EditProfileForm(UserChangeForm):
 
     class Meta:
         model = Profile
-        fields = ('first_name', 'last_name', 'email', 'password', 'avatar',)
+        fields = ('first_name', 'last_name', 'email', 'password',)
+
+
+class AvatarForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = ('avatar', )
+
+
+class SkillForm(forms.ModelForm):
+
+    class Meta:
+        model = Profile
+        fields = ('skills', )
 
 
 

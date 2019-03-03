@@ -17,6 +17,8 @@
       </div>
       <div class="circle--fluid--cell circle--fluid--secondary">
         <a class="button icon-on-left" href="{% url 'accounts:edit' %}">Edit</a>
+        <a class="button icon-on-left" href="{% url 'accounts:change_avatar' %}">Change Avatar</a>
+          <a class="button icon-on-left" href="{% url 'accounts:change_skills' %}">Add Skills</a>
       </div>
     </div>
 
@@ -64,20 +66,22 @@
 
       <div class="circle--secondary--module">
         <div class="circle--primary--avatar">
-          {% if profile.avatar %}
+          <tr><td>{% if profile.avatar %}
             <img src="{{ profile.avatar.url }}">
-          {% endif %}
+          {% else %}
+          <td>None</td>
+          {% endif %}</td></tr>
         </div>
       </div>
 
       <div class="circle--secondary--module">
         <h4>My Skills</h4>
         <ul class="unloaded">
-          <li>Skill 1</li>
-          <li>Skill 2</li>
-          <li>Skill 3</li>
-          <li>Skill 4</li>
-          <li>Skill 5</li>
+            {% if profile.skills %}
+            <ul>{{ profile.skills }}</ul>
+          {% else %}
+          <td>None</td>
+          {% endif %}
         </ul>
       </div>
 

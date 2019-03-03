@@ -7,8 +7,10 @@ from django.http import HttpResponseRedirect
 from django.contrib import messages
 from django.contrib.auth.forms import AuthenticationForm, UserChangeForm, PasswordChangeForm
 from .models import Profile, User
-from .forms import EditProfileForm
+from .forms import EditProfileForm, AvatarForm, SkillForm
 from django.contrib.auth import update_session_auth_hash
+from django.contrib.auth.decorators import login_required
+from django.views.generic.edit import UpdateView
 
 
 def register(request):
@@ -55,6 +57,7 @@ def my_profile(request):
     return render(request, 'profile.html', {'profile': profile})
 
 
+@login_required
 def edit_profile(request):
     if request.method == 'POST':
         form = EditProfileForm(request.POST, instance=request.user, files=request.FILES)
@@ -69,6 +72,7 @@ def edit_profile(request):
         return render(request, 'edit_profile.html', args)
 
 
+@login_required
 def change_password(request):
     if request.method == 'POST':
         form = PasswordChangeForm(request.user, request.POST)
@@ -82,3 +86,35 @@ def change_password(request):
     else:
         form = PasswordChangeForm(request.user)
     return render(request, 'change_password.html', {'form': form})
+
+
+@login_required
+def change_avatar(request):
+    if request.method == 'POST':
+        form = AvatarForm(request.POST, request.FILES, instance=request.user.profile)
+        if form.is_valid():
+            form.save()
+            return redirect('/accounts/profile')
+    else:
+        form = AvatarForm()
+    return render(request, 'change_avatar.html', {
+        'form': form
+    })
+
+
+@login_required
+def change_skills(request):
+    if request.method == 'POST':
+        form = SkillForm(request.POST, instance=request.user.profile)
+        if form.is_valid():
+            form.save()
+            return redirect('/accounts/profile')
+    else:
+        form = SkillForm()
+    return render(request, 'skills.html', {
+        'form': form
+    })
+
+
+
+
