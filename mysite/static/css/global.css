@@ -2054,13 +2054,7 @@ input[type="email"].circle--input--h6, input[type="number"].circle--input--h6, i
   position: relative;
   position: relative;
 }
-/* line 73, ../sass/circle/core/mixins.sass */
-.circle--primary--avatar:before {
-  display: block;
-  content: "";
-  width: 100%;
-  padding-top: 100%;
-}
+
 /* line 78, ../sass/circle/core/mixins.sass */
 .circle--primary--avatar > .placeholder {
   position: absolute;

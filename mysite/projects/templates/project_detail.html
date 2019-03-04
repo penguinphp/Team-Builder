@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="circle--actions--bar">
+    <div class="bounds">
+      <div class="grid-100">
+        {% if request.user == project.owner %}
+        <a class="button" href="{% url 'projects:edit_project' pk=project.id %}">Edit Project</a>
+        <a class="button" href="{% url 'projects:delete_project' pk=project.id %}">Delete Project</a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+  <div class="bounds circle--page circle--article">
+    <div class="grid-70">
+      <div class="circle--article--header">
+        <h4 class="circle--article--section">Offered By: {{ project.owner }}</h4>
+        <h4 class="circle--article--section">Project</h4>
+        <h1 class="circle--article--title">{{ project.title }}</h1>
+      </div>
+
+      <div class="circle--article--body">
+        <h3>Description</h3>
+        <p>{{ project.description }}</p>
+      </div>
+
+      <div class="circle--article--body">
+        <h3>Requirements</h3>
+        <p>{{ project.requirements }}</p>
+      </div>
+
+      <div class="circle--project--positions">
+        <h2>Timeline</h2>
+          <p>{{ project.timeline }}</p>
+      </div>
+    </div>
+  </div>
+{% endblock %}

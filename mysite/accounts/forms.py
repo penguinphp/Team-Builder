@@ -30,6 +30,7 @@ class EditProfileForm(UserChangeForm):
 
 
 class AvatarForm(forms.ModelForm):
+
     class Meta:
         model = Profile
         fields = ('avatar', )

@@ -1,13 +1,12 @@
 from django.contrib.auth import login, authenticate
 from django.shortcuts import render, redirect
-from .forms import SignUpForm
 from django.core.urlresolvers import reverse_lazy
 from django.contrib.auth import logout
 from django.http import HttpResponseRedirect
 from django.contrib import messages
 from django.contrib.auth.forms import AuthenticationForm, UserChangeForm, PasswordChangeForm
 from .models import Profile, User
-from .forms import EditProfileForm, AvatarForm, SkillForm
+from .forms import EditProfileForm, AvatarForm, SkillForm, SignUpForm
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.decorators import login_required
 from django.views.generic.edit import UpdateView
@@ -114,6 +113,9 @@ def change_skills(request):
     return render(request, 'skills.html', {
         'form': form
     })
+
+
+
 
 
 

@@ -1,6 +1,7 @@
 {% extends "layout.html" %}
 {% load static from staticfiles %}
 {% block content %}
+<body>
   <div class="circle--actions--bar">
     <nav class="bounds">
       <ul class="circle--pill--list">
@@ -13,7 +14,6 @@
   <div class="bounds circle--page">
     <div class="circle--page--header circle--fluid">
       <div class="circle--fluid--cell circle--fluid--primary">
-        <h2>Profile</h2>
       </div>
       <div class="circle--fluid--cell circle--fluid--secondary">
         <a class="button icon-on-left" href="{% url 'accounts:edit' %}">Edit</a>
@@ -32,8 +32,8 @@
 
         <p></p>
       </div>
-
-      <h2>Past Projects</h2>
+    <a class="button icon-on-left" href="{% url 'projects:new_project' %}">Create Project</a>
+        <h2>Past Projects</h2>
       <table class="u-full-width circle--table">
         <thead>
           <tr>
@@ -42,22 +42,13 @@
           </tr>
         </thead>
         <tbody>
-          <tr class="clickable-row" data-href="project.html">
-            <td>
-              <h3>Invoice Delivery Tool</h3>
-            </td>
-            <td class="circle--cell--right">
-              <span class="secondary-label">Rails Developer</span>
-            </td>
-          </tr>
-          <tr class="clickable-row" data-href="project.html">
-            <td>
-              <h3>Twitter Client</h3>
-            </td>
-            <td class="circle--cell--right">
-              <span class="secondary-label">Designer</span>
-            </td>
-          </tr>
+          {% if user.projects %}
+            <tr class="clickable-row" data-href="{% url 'projects:project-detail' pk=project_pk.pk %}">
+              <td>
+                <h3>{{ project.title }}</h3>
+              </td>
+              <td class="circle--cell--right">
+        {% endif %}
         </tbody>
       </table>
     </div>
@@ -66,11 +57,11 @@
 
       <div class="circle--secondary--module">
         <div class="circle--primary--avatar">
-          <tr><td>{% if profile.avatar %}
+          {% if profile.avatar %}
             <img src="{{ profile.avatar.url }}">
-          {% else %}
-          <td>None</td>
-          {% endif %}</td></tr>
+            {% else %}
+            <ul>No Avatar</ul>
+          {% endif %}
         </div>
       </div>
 
@@ -88,10 +79,9 @@
       <div class="circle--secondary--module">
         <h4>My Projects</h4>
         <ul class="circle--link--list">
-          <li><a>Project 1</a></li>
-          <li><a>Project 2</a></li>
-          <li><a>Project 3</a></li>
-          <li><a>Project 4</a></li>
+          {% for project in profile.user.projects.all %}
+            <li><a href="{% url 'projects:project_detail' pk=project.id %}">{{ project.title }}</a></li>
+          {% endfor %}
         </ul>
       </div>
     </div>
