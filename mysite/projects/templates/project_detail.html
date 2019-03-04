@@ -8,6 +8,10 @@
         {% if request.user == project.owner %}
         <a class="button" href="{% url 'projects:edit_project' pk=project.id %}">Edit Project</a>
         <a class="button" href="{% url 'projects:delete_project' pk=project.id %}">Delete Project</a>
+        <a class="button" href="{% url 'projects:new_position' pk=project.id %}">Add Position</a>
+        <a class="button" href="{% url 'accounts:profile' %}">Looks good!</a>
+        {% else %}
+        <a class="button" href="{% url 'projects:delete_project' pk=project.id %}">Apply Now</a>
         {% endif %}
       </div>
     </div>
@@ -32,9 +36,17 @@
       </div>
 
       <div class="circle--project--positions">
-        <h2>Timeline</h2>
+        <h3>Timeline</h3>
           <p>{{ project.timeline }}</p>
       </div>
+
+      <div class="circle--article--body">
+        <h3>Skills Required</h3>
+        <p>{{ project.skills }}</p>
+      </div>
+
+    </div>
+  </div>
     </div>
   </div>
 {% endblock %}

@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .forms import ProjectForm
+from .forms import ProjectForm, PositionForm
 from django.shortcuts import render, redirect
 from django.core.urlresolvers import reverse_lazy
 from django.core.exceptions import PermissionDenied
@@ -9,7 +9,7 @@ from django.views.generic import (
     UpdateView,
     DeleteView,
 )
-from .models import Project
+from .models import Project, Position, Application
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 
@@ -25,7 +25,7 @@ class ProjectCreate(LoginRequiredMixin, CreateView):
 
 class EditProject(LoginRequiredMixin, UpdateView):
     model = Project
-    fields = ['title', 'description', 'requirements', 'timeline']
+    fields = ['title', 'description', 'requirements', 'timeline', 'skills',]
 
     def form_valid(self, form):
         if form.instance.owner == self.request.user:
@@ -47,5 +47,29 @@ def all_projects(request):
     projects = Project.objects.all()
     return render(request, 'projects.html', {'projects': projects})
 
+
+def new_position(request, project_pk):
+    project = Project.objects.get(id=project_pk)
+    form = PositionForm(request.POST)
+
+    if request.method == 'POST':
+        position = form.save(commit=False)
+        position.project = project
+        form.save()
+        return redirect('projects:project_detail',  project_pk=project.id)
+
+    else:
+        form = PositionForm()
+        args = {'form': form}
+        return render(request, 'new_position.html', args)
+
+
+def apply_for_project(request, position_pk):
+    position = Position.objects.get(id=position_pk)
+    project = position.project
+    application = Application.objects.filter(
+        applicant=request.user,
+        position=position,
+    )
 
 
