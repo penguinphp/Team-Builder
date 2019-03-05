@@ -8,10 +8,8 @@
         {% if request.user == project.owner %}
         <a class="button" href="{% url 'projects:edit_project' pk=project.id %}">Edit Project</a>
         <a class="button" href="{% url 'projects:delete_project' pk=project.id %}">Delete Project</a>
-        <a class="button" href="{% url 'projects:new_position' pk=project.id %}">Add Position</a>
+        <a class="button" href="{% url 'projects:position_create' project_pk=project.id %}">New Position</a>
         <a class="button" href="{% url 'accounts:profile' %}">Looks good!</a>
-        {% else %}
-        <a class="button" href="{% url 'projects:delete_project' pk=project.id %}">Apply Now</a>
         {% endif %}
       </div>
     </div>
@@ -35,7 +33,7 @@
         <p>{{ project.requirements }}</p>
       </div>
 
-      <div class="circle--project--positions">
+      <div class="circle--article--body">
         <h3>Timeline</h3>
           <p>{{ project.timeline }}</p>
       </div>
@@ -45,8 +43,32 @@
         <p>{{ project.skills }}</p>
       </div>
 
-    </div>
-  </div>
+      <div class="circle--project--positions">
+        <h3>Positions</h3>
+
+        {% if position %}
+        <ul class="circle--group--list">
+           {% for position in position %}
+            <li>
+              <h3>{{ position.name }}</h3>
+              <p>
+                Description: {{ position.description }}
+              </p>
+              <p>
+                Skill required: {{ position.skills }}
+              </p>
+              {% if request.user != project.owner %}
+              <a class="button button-primary" href="{% url 'projects:apply' position_pk=position.id %}">Apply</a>
+              {% endif %}
+            </li>
+          {% endfor %}
+        </ul>
+        {% else %}
+        <p>There are no positions for this project yet</p>
+        {% endif %}
+      </div>
+
+
     </div>
   </div>
 {% endblock %}

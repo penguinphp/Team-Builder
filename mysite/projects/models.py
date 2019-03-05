@@ -35,6 +35,7 @@ class Position(models.Model):
     project = models.ForeignKey(Project, default='', related_name='positions')
     name = models.CharField(max_length=35, default='')
     description = models.TextField(default='')
+    skills = MultiSelectField(choices=SKILL_CHOICES)
 
     def __str__(self):
         return self.name

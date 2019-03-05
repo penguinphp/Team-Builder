@@ -6,10 +6,12 @@ from django.http import HttpResponseRedirect
 from django.contrib import messages
 from django.contrib.auth.forms import AuthenticationForm, UserChangeForm, PasswordChangeForm
 from .models import Profile, User
+from django.contrib.auth.models import User
 from .forms import EditProfileForm, AvatarForm, SkillForm, SignUpForm
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.decorators import login_required
 from django.views.generic.edit import UpdateView
+from projects.models import Project
 
 
 def register(request):
@@ -53,7 +55,8 @@ def login_view(request):
 
 def my_profile(request):
     profile = Profile.objects.get(user=request.user)
-    return render(request, 'profile.html', {'profile': profile})
+    projects = Project.objects.all()
+    return render(request, 'profile.html', {'profile': profile, 'projects': projects})
 
 
 @login_required
@@ -113,7 +116,6 @@ def change_skills(request):
     return render(request, 'skills.html', {
         'form': form
     })
-
 
 
 

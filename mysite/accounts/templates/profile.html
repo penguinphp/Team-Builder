@@ -5,7 +5,7 @@
   <div class="circle--actions--bar">
     <nav class="bounds">
       <ul class="circle--pill--list">
-        <li><a href="applications.html">Applications</a></li>
+        <li><a href="{% url 'projects:applications' %}">Applications</a></li>
         <li><a class="selected" href="{% url 'accounts:profile' %}">Profile</a></li>
       </ul>
     </nav>
@@ -42,13 +42,15 @@
           </tr>
         </thead>
         <tbody>
-          {% if user.projects %}
-            <tr class="clickable-row" data-href="{% url 'projects:project-detail' pk=project_pk.pk %}">
-              <td>
-                <h3>{{ project.title }}</h3>
-              </td>
+          {% if projects %}
+          <ul class="circle--link--list">
+            {% for project in projects %}
+            <tr class="clickable-row" data-href="{% url 'projects:project_detail' project_pk=project.id %}">
+             {% endfor %}
+           {% else %}
+               <p>There are none</p>
+            {% endif %}
               <td class="circle--cell--right">
-        {% endif %}
         </tbody>
       </table>
     </div>
@@ -59,7 +61,7 @@
         <div class="circle--primary--avatar">
           {% if profile.avatar %}
             <img src="{{ profile.avatar.url }}">
-            {% else %}
+          {% else %}
             <ul>No Avatar</ul>
           {% endif %}
         </div>
@@ -69,19 +71,22 @@
         <h4>My Skills</h4>
         <ul class="unloaded">
             {% if profile.skills %}
-            <ul>{{ profile.skills }}</ul>
-          {% else %}
-          <td>None</td>
-          {% endif %}
+              <ul>{{ profile.skills }}</ul>
+            {% else %}
+              <td>None</td>
+            {% endif %}
         </ul>
       </div>
-
       <div class="circle--secondary--module">
         <h4>My Projects</h4>
+      {% if projects %}
         <ul class="circle--link--list">
-          {% for project in profile.user.projects.all %}
-            <li><a href="{% url 'projects:project_detail' pk=project.id %}">{{ project.title }}</a></li>
+          {% for project in projects %}
+            <li><a href="{% url 'projects:project_detail' project_pk=project.id %}">{{ project.title }}</a></li>
           {% endfor %}
+       {% else %}
+          <p>There are none</p>
+       {% endif %}
         </ul>
       </div>
     </div>
