@@ -11,5 +11,6 @@ urlpatterns = [
     url(r"^apply/(?P<position_pk>\d+)/$", views.ApplyView.as_view(), name="apply"),
     url(r"applications/$", views.applications, name="applications"),
     url(r"applications/accepted/$", views.accepted_applications, name="accepted_applications"),
+    url(r"applications/rejected/$", views.rejected_applications, name="rejected_applications"),
     url(r"applications/(?P<app_pk>\d+)/(?P<status>accepted|rejected)/$", views.accept_or_reject, name="accept_reject"),
     ]

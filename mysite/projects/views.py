@@ -100,6 +100,11 @@ def accepted_applications(request):
     return render(request, 'accepted_applications.html', {'application': application})
 
 
+def rejected_applications(request):
+    application = Application.objects.filter(position__project__owner=request.user, status='r')
+    return render(request, 'rejected_applications.html', {'application': application})
+
+
 def accept_or_reject(request, app_pk, status):
     application = Application.objects.get(id=app_pk)
     position = Position.objects.get(application__id=application.id)
