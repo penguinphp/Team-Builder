@@ -72,7 +72,7 @@ def add_position(request, project_pk):
     return render(request, 'new_position.html', args)
 
 
-class ApplyView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
+class ApplyView(LoginRequiredMixin, CreateView):
     form_class = ApplicationForm
     model = Application
     template_name = "new_app.html"
@@ -83,25 +83,9 @@ class ApplyView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
                 'applicant': self.request.user,
                 'status': 'p'}
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['position_name'] = Position.objects.get(
-            id=self.kwargs.get('position_pk')
-        ).name
-        return context
-
     def form_valid(self, form):
-        position = Position.objects.get(id=self.kwargs.get('position_pk'))
-        applicant = self.request.user
-        self.object = form.save()
-        messages.success(self.request, 'You have applied for the position!')
-        return HttpResponseRedirect(self.get_success_url())
-
-
-
-
-
-
+        form.instance.owner = self.request.user
+        return super(ApplyView, self).form_valid(form)
 
 
 

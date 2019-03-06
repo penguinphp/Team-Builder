@@ -5,7 +5,7 @@
   <div class="circle--actions--bar">
     <nav class="bounds">
       <ul class="circle--pill--list">
-        <li><a class="selected" href="applications.html">Applications</a></li>
+        <li><a href="{% url 'projects:applications' %}">Applications</a></li>
         <li><a href="{% url 'accounts:profile' %}">Profile</a></li>
       </ul>
     </nav>
@@ -38,13 +38,14 @@
         </thead>
         <tbody>
           {% if applicants %}
+          <h3>FOUND APPLICANT</h3>
             {% for application in applications %}
           <tr class="clickable-row" data-href="profile.html">
             <td>
-              <h3>{{ application.applicant.email }}</h3>
-              <p>{{ application.position.project }}</p>
+              <h3>FOUND APPLICANT</h3>
+              <p></p>
               <td class="circle--cell--right">
-                            <span class="secondary-label">{{ application.position.skill }}</span>
+                            <span class="secondary-label"></span>
             </td>
           </tr>
             {% endfor %}
