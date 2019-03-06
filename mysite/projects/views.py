@@ -144,3 +144,12 @@ def all_projects(request):
 def by_skill(request, skill):
     projects = Project.objects.filter(Q(skills__icontains=skill))
     return render(request, "search.html", {'projects': projects})
+
+
+def by_keyword(request):
+    query = request.GET.get('q', '')
+    all_projects = Project.objects.all()
+    projects = all_projects.filter(
+        Q(description__icontains=query) | Q(title__icontains=query)
+    )
+    return render(request, "search.html", {'projects': projects})
