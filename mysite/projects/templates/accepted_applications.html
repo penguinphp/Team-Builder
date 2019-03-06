@@ -20,8 +20,10 @@
       <div class="circle--filter circle--secondary--module">
         <h4>Status</h4>
         <ul class="circle--filter--list">
-          <li><a class="selected">All Applications</a></li>
-          <a href="{% url 'projects:accepted_applications' %}">Accepted</a>
+          <a href="{% url 'projects:applications' %}">All Applications</a>
+        </ul>
+         <ul class="circle--filter--list">
+          <a class="selected" href="{% url 'projects:accepted_applications' %}">Accepted</a>
         </ul>
       </div>
     </div>
@@ -37,18 +39,18 @@
         <tbody>
           {% if application %}
             {% for application in application %}
-              {% if application.status == 'p' %}
+              {% if application.status == 'a' %}
               <td><h3><a href="">{{ application.id }}</a></h3>
               <td class="circle--cell--right"><span class="secondary-label"></span>
               <h3>{{ application.position }}</h3>
               <td class="circle--cell--right"><span class="secondary-label"></span>
-              <button><a href="{% url 'projects:accept_reject' app_pk=application.pk status='accepted' %}">Accept</a></button>
-              <button><a href="{% url 'projects:accept_reject' app_pk=application.pk status='rejected' %}">Reject</a></button>
+              <a href="{% url 'projects:accept_reject' app_pk=application.pk status='accepted' %}"></a>
+              <a href="{% url 'projects:accept_reject' app_pk=application.pk status='rejected' %}"></a>
               {% endif %}
               </tr>
             {% endfor %}
           {% else %}
-            <p>No one has applied to any positions</p>
+            <p>You have not approved any applications</p>
           {% endif %}
         </tbody>
       </table>

@@ -118,6 +118,16 @@ def change_skills(request):
     })
 
 
+def show_any_profile(request, pk):
+    profile = Profile.objects.get(id=pk)
+    skills = profile.skills.all()
+    return render(
+        request,
+        'profile.html',
+        {'profile': profile, 'skills': skills}
+    )
+
+
 
 
 

@@ -17,6 +17,8 @@ from django.views.generic import (
 from .models import Project, Position, Application
 from django.contrib.auth.mixins import LoginRequiredMixin
 
+from accounts.models import Profile
+
 
 skill = ['Android Developer', 'Designer', 'Java Developer', 'PHP Developer', 'Python Developer',
           'Rails Developer', 'Wordpress Devloper', 'iOS Developer',]
@@ -88,15 +90,29 @@ class ApplyView(LoginRequiredMixin, CreateView):
         return super(ApplyView, self).form_valid(form)
 
 
-
-
-
-
-
-
-
-
 def applications(request):
-    apps = Application.objects.filter(
-        position__project__owner=request.user)
-    return render(request, 'applications.html', {'apps': apps})
+    application = Application.objects.filter(position__project__owner=request.user)
+    return render(request, 'applications.html', {'application': application})
+
+
+def accepted_applications(request):
+    application = Application.objects.filter(position__project__owner=request.user, status='a')
+    return render(request, 'accepted_applications.html', {'application': application})
+
+
+def accept_or_reject(request, app_pk, status):
+    application = Application.objects.get(id=app_pk)
+    position = Position.objects.get(application__id=application.id)
+    if status == "accepted":
+        application.status = "a"
+        application.save()
+        position.filled = True
+        position.save()
+        return HttpResponseRedirect(reverse('home'))
+    if status == "rejected":
+        application.status = "r"
+        application.save()
+        position.filled = True
+        position.save()
+        return HttpResponseRedirect(reverse('home'))
+
