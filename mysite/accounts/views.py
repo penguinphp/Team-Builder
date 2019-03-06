@@ -55,7 +55,7 @@ def login_view(request):
 
 def my_profile(request):
     profile = Profile.objects.get(user=request.user)
-    projects = Project.objects.all()
+    projects = Project.objects.filter(owner=request.user)
     return render(request, 'profile.html', {'profile': profile, 'projects': projects})
 
 

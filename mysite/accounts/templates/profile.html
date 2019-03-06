@@ -18,7 +18,8 @@
       <div class="circle--fluid--cell circle--fluid--secondary">
         <a class="button icon-on-left" href="{% url 'accounts:edit' %}">Edit</a>
         <a class="button icon-on-left" href="{% url 'accounts:change_avatar' %}">Change Avatar</a>
-          <a class="button icon-on-left" href="{% url 'accounts:change_skills' %}">Add Skills</a>
+        <a class="button icon-on-left" href="{% url 'accounts:change_skills' %}">Add Skills</a>
+        <a class="button icon-on-left" href="{% url 'projects:new_project' %}">Create Project</a>
       </div>
     </div>
 
@@ -32,27 +33,23 @@
 
         <p></p>
       </div>
-    <a class="button icon-on-left" href="{% url 'projects:new_project' %}">Create Project</a>
         <h2>Past Projects</h2>
       <table class="u-full-width circle--table">
         <thead>
           <tr>
             <th>Project Title</th>
-            <th class="circle--cell--right">Project Needs</th>
           </tr>
         </thead>
-        <tbody>
-          {% if projects %}
-          <ul class="circle--link--list">
-            {% for project in projects %}
-            <tr class="clickable-row" data-href="{% url 'projects:project_detail' project_pk=project.id %}">
-             {% endfor %}
-           {% else %}
-               <p>There are none</p>
-            {% endif %}
-              <td class="circle--cell--right">
         </tbody>
-      </table>
+        </table>
+        </tbody>
+      {% if projects %}
+          {% for project in projects %}
+            <ul><a href="{% url 'projects:project_detail' project_pk=project.id %}">{{ project.title }}</a></ul>
+          {% endfor %}
+       {% else %}
+          <p>There are none</p>
+       {% endif %}
     </div>
 
     <div class="grid-25 grid-push-5">

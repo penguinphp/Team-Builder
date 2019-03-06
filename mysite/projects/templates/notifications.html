@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="circle--actions--bar">
+    <nav class="bounds">
+      <ul class="circle--pill--list">
+          <h2>Recent Notifications</h2>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="bounds circle--page">
+    <div class="grid-70">
+      <div class="circle--article--body">
+      {% if unread_notifications %}
+        {% for message in unread_notifications %}
+            <p>{{ message.verb }}</p>
+            <p><strong>{{ message.timestamp}}</strong></p>
+            <hr/>
+          {% endfor %}
+      {% else %}
+          <p>You do not have any Notifications!</p>
+      {% endif %}
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

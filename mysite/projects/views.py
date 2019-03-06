@@ -16,6 +16,7 @@ from django.views.generic import (
 )
 from .models import Project, Position, Application
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.db.models import Q
 
 from accounts.models import Profile
 
@@ -52,11 +53,6 @@ def project_detail(request, project_pk):
     project = Project.objects.get(id=project_pk)
     position = project.positions.all()
     return render(request, 'project_detail.html', {'project': project, 'position': position})
-
-
-def all_projects(request):
-    projects = Project.objects.all()
-    return render(request, 'projects.html', {'projects': projects})
 
 
 def add_position(request, project_pk):
@@ -113,11 +109,38 @@ def accept_or_reject(request, app_pk, status):
         application.save()
         position.filled = True
         position.save()
+        notify.send(request.user, recipient=application.applicant,
+            verb="{} accepted you for the position '{}'.".format(
+                request.user,
+                application.position.name
+            )
+        )
         return HttpResponseRedirect(reverse('home'))
     if status == "rejected":
         application.status = "r"
         application.save()
         position.filled = True
         position.save()
+        notify.send(request.user, recipient=application.applicant,
+            verb="{} rejected you for the position '{}'.".format(
+                 request.user,
+                application.position.name
+             )
+        )
         return HttpResponseRedirect(reverse('home'))
 
+
+@login_required
+def new_notifications(request):
+    unread_notifications = request.user.notifications.unread()
+    return render(request, 'notifications.html', {'unread_notifications': unread_notifications})
+
+
+def all_projects(request):
+    projects = Project.objects.all()
+    return render(request, 'all_projects.html', {'projects': projects})
+
+
+def by_skill(request, skill):
+    projects = Project.objects.filter(Q(skills__icontains=skill))
+    return render(request, "search.html", {'projects': projects})
