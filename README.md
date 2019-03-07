@@ -14,6 +14,7 @@ Username: Aviate  Password: password44 <br/>
 - Site resembles the supplied design.
 - Can register for an account.
 - Can login with valid credentials.
+- Can logout.
 
 
 
