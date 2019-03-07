@@ -134,7 +134,8 @@ def accept_or_reject(request, app_pk, status):
 @login_required
 def new_notifications(request):
     unread_notifications = request.user.notifications.unread()
-    return render(request, 'notifications.html', {'unread_notifications': unread_notifications})
+    unread_notification_count = request.user.notifications.unread().count()
+    return render(request, 'notifications.html', {'unread_notifications': unread_notifications, 'unread_notification_count': unread_notification_count})
 
 
 def all_projects(request):
