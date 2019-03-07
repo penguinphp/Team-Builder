@@ -55,6 +55,7 @@ def project_detail(request, project_pk):
     return render(request, 'project_detail.html', {'project': project, 'position': position})
 
 
+@login_required
 def add_position(request, project_pk):
     project = Project.objects.get(id=project_pk)
     if request.method == 'POST':
@@ -86,21 +87,25 @@ class ApplyView(LoginRequiredMixin, CreateView):
         return super(ApplyView, self).form_valid(form)
 
 
+@login_required
 def applications(request):
     application = Application.objects.filter(position__project__owner=request.user)
     return render(request, 'applications.html', {'application': application})
 
 
+@login_required
 def accepted_applications(request):
     application = Application.objects.filter(position__project__owner=request.user, status='a')
     return render(request, 'accepted_applications.html', {'application': application})
 
 
+@login_required
 def rejected_applications(request):
     application = Application.objects.filter(position__project__owner=request.user, status='r')
     return render(request, 'rejected_applications.html', {'application': application})
 
 
+@login_required
 def accept_or_reject(request, app_pk, status):
     application = Application.objects.get(id=app_pk)
     position = Position.objects.get(application__id=application.id)
@@ -152,4 +157,4 @@ def by_keyword(request):
     projects = all_projects.filter(
         Q(description__icontains=query) | Q(title__icontains=query)
     )
-    return render(request, "search.html", {'projects': projects})
+    return render(request, "search.html", {'projects': projects, 'all_projects': all_projects})
