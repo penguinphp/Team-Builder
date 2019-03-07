@@ -15,6 +15,8 @@ Username: Aviate  Password: password44 <br/>
 - Can register for an account.
 - Can login with valid credentials.
 - Can logout.
+- Can edit profile.
+- Can upload an avatar.
 
 
 
