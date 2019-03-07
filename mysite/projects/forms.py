@@ -1,4 +1,5 @@
 from django import forms
+
 from .models import Position, Project, Application
 
 
@@ -23,6 +24,4 @@ class ApplicationForm(forms.ModelForm):
         widgets = {'applicant': forms.HiddenInput,
                    'position': forms.HiddenInput,
                    'status': forms.HiddenInput}
-
-
 

@@ -41,7 +41,7 @@
           {% if application %}
             {% for application in application %}
               {% if application.status == 'p' %}
-              <td><h3><a href="">{{ application.id }}</a></h3>
+              <td><h3><a>{{ application.applicant.first_name }}</a></h3>
               <td class="circle--cell--right"><span class="secondary-label"></span>
               <h3>{{ application.position }}</h3>
               <td class="circle--cell--right"><span class="secondary-label"></span>

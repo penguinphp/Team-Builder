@@ -1,16 +1,13 @@
 from django.contrib.auth import login, authenticate
 from django.shortcuts import render, redirect
-from django.core.urlresolvers import reverse_lazy
-from django.contrib.auth import logout
-from django.http import HttpResponseRedirect
 from django.contrib import messages
-from django.contrib.auth.forms import AuthenticationForm, UserChangeForm, PasswordChangeForm
-from .models import Profile, User
-from django.contrib.auth.models import User
-from .forms import EditProfileForm, AvatarForm, SkillForm, SignUpForm
-from django.contrib.auth import update_session_auth_hash
+from django.contrib.auth.forms import AuthenticationForm, PasswordChangeForm
+from django.contrib.auth import update_session_auth_hash, logout
 from django.contrib.auth.decorators import login_required
-from django.views.generic.edit import UpdateView
+
+from .models import Profile
+from .forms import EditProfileForm, AvatarForm, SkillForm, SignUpForm
+
 from projects.models import Project
 
 
@@ -54,6 +51,7 @@ def login_view(request):
 
 
 def my_profile(request):
+    """Shows the users profile, shows users projects and skills"""
     profile = Profile.objects.get(user=request.user)
     projects = Project.objects.filter(owner=request.user)
     return render(request, 'profile.html', {'profile': profile, 'projects': projects})
@@ -61,6 +59,7 @@ def my_profile(request):
 
 @login_required
 def edit_profile(request):
+    """Allows user to edit their email or name"""
     if request.method == 'POST':
         form = EditProfileForm(request.POST, instance=request.user, files=request.FILES)
 
@@ -76,6 +75,7 @@ def edit_profile(request):
 
 @login_required
 def change_password(request):
+    """Allows user to change their password"""
     if request.method == 'POST':
         form = PasswordChangeForm(request.user, request.POST)
         if form.is_valid():
@@ -92,6 +92,7 @@ def change_password(request):
 
 @login_required
 def change_avatar(request):
+    """Allows user to upload and save a avatar"""
     if request.method == 'POST':
         form = AvatarForm(request.POST, request.FILES, instance=request.user.profile)
         if form.is_valid():
@@ -106,6 +107,7 @@ def change_avatar(request):
 
 @login_required
 def change_skills(request):
+    """Allows user to select their skills from a drop down menu"""
     if request.method == 'POST':
         form = SkillForm(request.POST, instance=request.user.profile)
         if form.is_valid():
@@ -117,15 +119,6 @@ def change_skills(request):
         'form': form
     })
 
-
-def show_any_profile(request, pk):
-    profile = Profile.objects.get(id=pk)
-    skills = profile.skills.all()
-    return render(
-        request,
-        'profile.html',
-        {'profile': profile, 'skills': skills}
-    )
 
 
 

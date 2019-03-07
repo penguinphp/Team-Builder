@@ -1,23 +1,19 @@
-from django.shortcuts import render
-from .forms import ProjectForm, PositionForm, ApplicationForm
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.core.urlresolvers import reverse_lazy, reverse
-from django.core.exceptions import PermissionDenied
-from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpResponseRedirect
-from django.contrib.messages.views import SuccessMessageMixin
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.db.models import Q
 from notifications.signals import notify
-from django.contrib import messages
+
 from django.views.generic import (
     CreateView,
     UpdateView,
     DeleteView,
 )
-from .models import Project, Position, Application
-from django.contrib.auth.mixins import LoginRequiredMixin
-from django.db.models import Q
 
+from .models import Project, Position, Application
+from .forms import ProjectForm, PositionForm, ApplicationForm
 from accounts.models import Profile
 
 

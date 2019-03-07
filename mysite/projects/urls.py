@@ -17,4 +17,4 @@ urlpatterns = [
     url(r"search/skill/(?P<skill>[a-zA-Z]+)/$", views.by_skill, name="by_skill"),
     url(r"search/projects/all/$", views.all_projects, name="all_projects"),
     url(r"search/$", views.by_keyword, name="search"),
-    ]
+]
