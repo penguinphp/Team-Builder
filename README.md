@@ -17,6 +17,15 @@ Username: Aviate  Password: password44 <br/>
 - Can logout.
 - Can edit profile.
 - Can upload an avatar.
-
+- Can pick multiple skills for my profile from a list.
+- Can create a project.
+- Can create multiple positions for a project. Positions relate to a particular skill.
+- Can see the applicants for a project.
+- Can approve an applicant.
+- Can reject an applicant.
+- Notified when approved/rejected for a position.
+- Can search by terms that match project name or description. Search is case-insensitive.
+- Can filter projects by open position skills needed.
+- Can apply for a position.
 
 
