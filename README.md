@@ -1,7 +1,7 @@
-**DESCRIPTION**<br />
+**Description**<br />
 My final project (#12) for Treehouse Python Web Development techdegree.
 
-**SET UP** <br/>
+**Set Up** <br/>
 1. install requirements ```pip install -r requirements.txt```
 2. cd to ```mysite``` then ```manage.py runserver```
 
