@@ -1,5 +1,5 @@
 **Description**<br />
-My final project (#12) for Treehouse Python Web Development.
+My final project (#12) for Python Web Development.
 
 **Set Up** <br/>
 1. install requirements ```pip install -r requirements.txt```
