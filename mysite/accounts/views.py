@@ -118,10 +118,3 @@ def change_skills(request):
     return render(request, 'skills.html', {
         'form': form
     })
-
-
-
-
-
-
-
