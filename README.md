@@ -1,5 +1,6 @@
 **Description**<br />
-My final project (#12) for Python Web Development. COMPLETED 3/06/2018
+My final project (#12) for Python Web Development.
+Completed 3/06/2018
 
 **Set Up** <br/>
 1. install requirements ```pip install -r requirements.txt```
