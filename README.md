@@ -1,5 +1,5 @@
 **Description**<br />
-My final project (#12) for Python Web Development.
+Final project (#12) for Python Web Development.
 Completed 3/06/2018
 
 **Set Up** <br/>
